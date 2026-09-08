@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>气象行业情报中心 - Weather Intelligence Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 侧边导航 -->
+    <nav class="sidebar">
+        <div class="logo">
+            <h2>气象情报中心</h2>
+            <p class="logo-subtitle">Weather Intelligence</p>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#" class="nav-item active" data-page="home">首页</a></li>
+            <li><a href="#" class="nav-item" data-page="toc">ToC竞品</a></li>
+            <li class="nav-group">
+                <a href="#" class="nav-item" data-page="tob">ToB行业</a>
+                <ul class="sub-menu">
+                    <li><a href="#" data-page="tob-metro">地铁</a></li>
+                    <li><a href="#" data-page="tob-aviation">航空</a></li>
+                    <li><a href="#" data-page="tob-energy">能源</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="nav-item" data-page="trends">行业趋势</a></li>
+            <li><a href="#" class="nav-item" data-page="companies">重点企业</a></li>
+            <li><a href="#" class="nav-item" data-page="ai">AI分析</a></li>
+            <li><a href="#" class="nav-item" data-page="library">情报库</a></li>
+            <li><a href="#" class="nav-item" data-page="reports">报告中心</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <!-- 顶部搜索栏 -->
+        <header class="top-bar">
+            <div class="search-container">
+                <input type="text" id="globalSearch" placeholder="搜索公司、产品、行业、事件、关键词...">
+                <button class="search-btn">搜索</button>
+            </div>
+            <div class="user-info">
+                <span class="update-time">最后更新: <span id="lastUpdate">2026-09-07 08:00</span></span>
+            </div>
+        </header>
+
+        <!-- 页面容器 -->
+        <div id="pageContainer"></div>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
