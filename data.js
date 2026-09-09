@@ -3,9 +3,9 @@
 const MOCK_DATA = {
     // 首页统计
     stats: {
-        weeklyIntel: 47,
-        keyIntel: 12,
-        companies: 15,
+        weeklyIntel: 51,
+        keyIntel: 14,
+        companies: 19,
         trends: 8
     },
 
@@ -83,6 +83,62 @@ const MOCK_DATA = {
             aiAnalysis: "闪电追踪是雷达地图的常规功能扩展，技术壁垒不高，但对关注极端天气的用户有一定价值。",
             impactOnMoji: "对墨迹天气的影响：功能性补充，可根据用户需求评估是否引入。",
             ratingReason: "常规功能更新，行业普遍趋势"
+        },
+        {
+            id: 6,
+            title: "Weathernews强化台风路径预测精度，新版本上线",
+            company: "Weathernews",
+            field: "ToC",
+            date: "2026-08-30",
+            type: "产品",
+            rating: "A",
+            summary: "日本气象服务商Weathernews发布最新版本，强化台风路径预测功能。结合日本气象厅数据和自有AI模型，台风路径预测准确率达行业领先水平。新版本还优化了海洋天气服务和降雪预报可视化。",
+            source: "https://weathernews.jp/news",
+            aiAnalysis: "Weathernews在亚太地区台风预测领域积累深厚，其专业化和本地化策略值得关注。针对台风等高关注天气场景的深度优化能够建立竞争壁垒。",
+            impactOnMoji: "对墨迹天气的影响：台风预测是中国沿海地区用户的核心需求，Weathernews的技术优势显示专业化方向的价值。墨迹可考虑在台风、暴雨等灾害性天气预报上加大投入。",
+            ratingReason: "日本头部竞品产品更新，台风预测技术领先"
+        },
+        {
+            id: 7,
+            title: "Weather & Radar德国版完成重大更新，用户体验全面升级",
+            company: "Weather & Radar",
+            field: "ToC",
+            date: "2026-08-28",
+            type: "产品",
+            rating: "A",
+            summary: "德国天气应用Weather & Radar（App ID: 545993260）发布v2.48版本，升级多普勒雷达显示效果，支持自定义雷达图层。新版本优化了极端天气推送逻辑，用户可精细化设置预警阈值。",
+            source: "https://weatherradar.de/news",
+            aiAnalysis: "Weather & Radar通过持续强化雷达可视化建立差异化优势，自定义图层功能满足专业用户需求。其在欧洲市场的成功显示专业工具型产品的市场空间。",
+            impactOnMoji: "对墨迹天气的影响：雷达可视化是专业用户和极端天气场景的重要功能。墨迹需要评估雷达地图的产品优先级，以及如何在大众化定位下提供专业功能。",
+            ratingReason: "欧洲主流竞品重大更新，雷达技术有特色"
+        },
+        {
+            id: 8,
+            title: "天气通优化UI设计，新增语音播报功能",
+            company: "天气通",
+            field: "ToC",
+            date: "2026-08-25",
+            type: "产品",
+            rating: "B",
+            summary: "天气通发布v8.05版本，优化首页布局采用更简洁的卡片式设计，新增语音播报功能支持方言播报。新版本还支持15天趋势预报，并修复了部分机型的闪退问题。",
+            source: "https://www.weather.com.cn/app",
+            aiAnalysis: "天气通在UI简化和适老化功能上有所探索。语音播报支持方言是针对中老年用户的差异化功能，显示对不同用户群体需求的关注。",
+            impactOnMoji: "对墨迹天气的影响：天气通在UI简化和适老化方面的尝试值得参考。墨迹可考虑针对不同年龄段用户推出差异化功能，如简化版或长辈模式。",
+            ratingReason: "国内竞品常规更新，适老化功能有特色"
+        },
+        {
+            id: 9,
+            title: "看天专注农业气象，新增农作物病虫害预警",
+            company: "看天",
+            field: "ToC",
+            date: "2026-08-22",
+            type: "产品",
+            rating: "B",
+            summary: "看天发布v3.2版本，专注农业气象服务。新增农作物病虫害预警功能，结合天气数据和农业知识为农户提供实用建议。优化了乡镇级天气预报精度，新增农事建议功能。",
+            source: "https://kantian.app/news",
+            aiAnalysis: "看天通过深耕农业气象垂直场景建立差异化定位。农作物病虫害预警等专业功能显示对细分用户需求的深度理解，垂直化策略值得关注。",
+            impactOnMoji: "对墨迹天气的影响：垂直场景深耕是差异化竞争的有效策略。看天在农业气象上的探索显示细分市场潜力，墨迹可评估是否在某些垂直场景（如户外运动、旅游等）做专业化尝试。",
+            ratingReason: "垂直化竞品产品更新，农业气象场景有价值"
         }
     ],
 
@@ -302,6 +358,54 @@ const MOCK_DATA = {
             recentActivity: 18,
             aiScore: 92,
             recentStrategy: "国能日新近期密集中标大型功率预测项目，市场份额持续提升。公司策略是通过技术领先（90%+准确率）和持续服务能力建立客户粘性，同时向电力交易、虚拟电厂等新场景延伸。"
+        },
+        {
+            id: 4,
+            name: "Weathernews",
+            logo: "WN",
+            field: ["ToC"],
+            products: ["Weathernews App", "台风预测", "海洋天气"],
+            customers: ["日本及亚太地区C端用户", "专业用户"],
+            businessModel: "To C订阅会员 + To B专业服务",
+            recentActivity: 8,
+            aiScore: 90,
+            recentStrategy: "Weathernews在亚太地区深耕台风和海洋气象服务，通过专业化和本地化建立竞争优势。近期强化AI台风预测能力，准确率达到行业领先水平。"
+        },
+        {
+            id: 5,
+            name: "Weather & Radar",
+            logo: "WR",
+            field: ["ToC"],
+            products: ["Weather & Radar App", "雷达地图", "闪电追踪"],
+            customers: ["欧洲C端用户", "专业气象爱好者"],
+            businessModel: "To C订阅会员 + 广告",
+            recentActivity: 10,
+            aiScore: 85,
+            recentStrategy: "Weather & Radar专注雷达可视化和极端天气监测，通过技术差异化在欧洲市场占据一席之地。近期获得B轮融资，计划扩大市场份额和强化技术研发。"
+        },
+        {
+            id: 6,
+            name: "天气通",
+            logo: "天气通",
+            field: ["ToC"],
+            products: ["天气通App", "语音播报", "15天预报"],
+            customers: ["国内C端用户"],
+            businessModel: "To C广告 + 增值服务",
+            recentActivity: 6,
+            aiScore: 75,
+            recentStrategy: "天气通在UI简化和适老化功能上有所探索，语音播报支持方言是其特色。产品定位偏向大众化和易用性，关注中老年用户群体。"
+        },
+        {
+            id: 7,
+            name: "看天",
+            logo: "看天",
+            field: ["ToC"],
+            products: ["看天App", "农业气象", "病虫害预警"],
+            customers: ["农业用户", "乡村用户"],
+            businessModel: "To C免费 + To B农业服务",
+            recentActivity: 5,
+            aiScore: 78,
+            recentStrategy: "看天专注农业气象垂直场景，通过深度理解农业用户需求建立差异化定位。乡镇级预报和农事建议是其核心优势，显示垂直化策略的潜力。"
         }
     ],
 
