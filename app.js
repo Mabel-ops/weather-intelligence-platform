@@ -767,11 +767,25 @@ class WeatherIntelligencePlatform {
             const element = document.getElementById(id);
             if (element) {
                 element.addEventListener('change', () => {
-                    // 筛选逻辑
-                    alert('筛选功能演示中...');
+                    this.filterToCIntelligence();
                 });
             }
         });
+    }
+
+    filterToCIntelligence() {
+        const companyFilter = document.getElementById('tocCompanyFilter').value;
+        const typeFilter = document.getElementById('tocTypeFilter').value;
+        const ratingFilter = document.getElementById('tocRatingFilter').value;
+
+        let filtered = MOCK_DATA.tocIntelligence.filter(intel => {
+            const matchCompany = !companyFilter || intel.company === companyFilter;
+            const matchType = !typeFilter || intel.type === typeFilter;
+            const matchRating = !ratingFilter || intel.rating === ratingFilter;
+            return matchCompany && matchType && matchRating;
+        });
+
+        document.getElementById('tocIntelList').innerHTML = this.renderIntelList(filtered);
     }
 
     updateTime() {
