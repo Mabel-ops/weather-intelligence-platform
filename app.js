@@ -1,8 +1,8 @@
-// 气象行业情报监测平台-主应用逻辑
+// 气象行业情报监测平台 - 主应用逻辑
 
 class WeatherIntelligencePlatform {
-    构造函数() {
-        this.currentPage = '首页';
+    constructor() {
+        this.currentPage = 'home';
         this.init();
     }
 
@@ -18,7 +18,7 @@ class WeatherIntelligencePlatform {
             item.addEventListener('click', (e) => {
                 e.preventDefault();
                 const page = e.target.dataset.page;
-                如果（页面）{
+                if (page) {
                     this.renderPage(page);
                     document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
                     e.target.classList.add('active');
@@ -31,7 +31,7 @@ class WeatherIntelligencePlatform {
             item.addEventListener('click', (e) => {
                 e.preventDefault();
                 const page = e.target.dataset.page;
-                如果（页面）{
+                if (page) {
                     this.renderPage(page);
                     document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
                     document.querySelectorAll('.sub-menu a').forEach(nav => nav.classList.remove('active'));
@@ -46,7 +46,7 @@ class WeatherIntelligencePlatform {
         });
 
         document.getElementById('globalSearch').addEventListener('keypress', (e) => {
-            如果 (e.key === 'Enter') {
+            if (e.key === 'Enter') {
                 this.handleSearch();
             }
         });
@@ -57,49 +57,49 @@ class WeatherIntelligencePlatform {
         const container = document.getElementById('pageContainer');
 
         switch(page) {
-            案例“家”：
+            case 'home':
                 container.innerHTML = this.renderHomePage();
-                休息;
+                break;
             case 'toc':
-                容器.innerHTML = this.renderToCPage();
+                container.innerHTML = this.renderToCPage();
                 this.attachToCEventListeners();
-                休息;
+                break;
             case 'tob':
                 container.innerHTML = this.renderToBPage();
-                休息;
+                break;
             case 'tob-metro':
                 container.innerHTML = this.renderToBIndustryPage('地铁', MOCK_DATA.tobIntelligence.metro);
-                休息;
-            案例 'tob-aviation'：
+                break;
+            case 'tob-aviation':
                 container.innerHTML = this.renderToBIndustryPage('航空', MOCK_DATA.tobIntelligence.aviation);
-                休息;
+                break;
             case 'tob-energy':
                 container.innerHTML = this.renderToBIndustryPage('能源', MOCK_DATA.tobIntelligence.energy);
-                休息;
-            案例“趋势”：
+                break;
+            case 'trends':
                 container.innerHTML = this.renderTrendsPage();
-                休息;
-            案例“公司”：
+                break;
+            case 'companies':
                 container.innerHTML = this.renderCompaniesPage();
-                休息;
+                break;
             case 'ai':
                 container.innerHTML = this.renderAIPage();
                 this.attachAIEventListeners();
-                休息;
-            案例“图书馆”：
+                break;
+            case 'library':
                 container.innerHTML = this.renderLibraryPage();
-                休息;
-            案例“报告”：
+                break;
+            case 'reports':
                 container.innerHTML = this.renderReportsPage();
-                休息;
-            默认：
+                break;
+            default:
                 container.innerHTML = this.renderHomePage();
         }
     }
 
     // 首页
     renderHomePage() {
-        返回`
+        return `
             <div class="page-header">
                 <h1 class="page-title">气象行业情报中心</h1>
                 <p class="page-subtitle">AI驱动的天气竞品与气象行业趋势监测平台</p>
@@ -107,14 +107,14 @@ class WeatherIntelligencePlatform {
 
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-label">本周新增信息</div>
+                    <div class="stat-label">本周新增情报</div>
                     <div class="stat-value">${MOCK_DATA.stats.weeklyIntel}</div>
-                    <div class="stat-change">上周 +8</div>
+                    <div class="stat-change">较上周 +8</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">重点情报（S/A级）</div>
+                    <div class="stat-label">重点情报 (S/A级)</div>
                     <div class="stat-value">${MOCK_DATA.stats.keyIntel}</div>
-                    <div class="stat-change">上周 +3</div>
+                    <div class="stat-change">较上周 +3</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">监测企业</div>
@@ -129,12 +129,12 @@ class WeatherIntelligencePlatform {
             </div>
 
             <div class="ai-summary-card">
-                <h3>🤖人工智能本周摘要</h3>
+                <h3>🤖 AI本周摘要</h3>
                 <p>${MOCK_DATA.aiWeeklySummary}</p>
             </div>
 
             <section style="margin-bottom: 3rem;">
-                <h2 class="section-title">📌本周重点情报</h2>
+                <h2 class="section-title">📌 本周重点情报</h2>
                 ${this.renderIntelList(this.getKeyIntel())}
             </section>
 
@@ -153,7 +153,7 @@ class WeatherIntelligencePlatform {
             </section>
 
             <section>
-                <h2 class="section-title">📈近期行业趋势</h2>
+                <h2 class="section-title">📈 近期行业趋势</h2>
                 ${this.renderTrendsList(MOCK_DATA.trends.slice(0, 3))}
             </section>
         `;
@@ -161,7 +161,7 @@ class WeatherIntelligencePlatform {
 
     // ToC竞品页面
     renderToCPage() {
-        返回`
+        return `
             <div class="page-header">
                 <h1 class="page-title">ToC天气产品竞品监测</h1>
                 <p class="page-subtitle">全球主流天气APP动态追踪</p>
@@ -174,11 +174,11 @@ class WeatherIntelligencePlatform {
                         <select id="tocCompanyFilter">
                             <option value="">全部公司</option>
                             <option value="AccuWeather">AccuWeather</option>
-                            <option value="天气频道">天气频道</option>
+                            <option value="The Weather Channel">The Weather Channel</option>
                             <option value="Windy.com">Windy.com</option>
                             <option value="彩云天气">彩云天气</option>
-                            <option value="天气与雷达">天气与雷达</option>
-                            <option value="天气新闻">天气新闻</option>
+                            <option value="Weather & Radar">Weather & Radar</option>
+                            <option value="Weathernews">Weathernews</option>
                             <option value="天气通">天气通</option>
                             <option value="看天">看天</option>
                             <option value="墨迹天气">墨迹天气</option>
@@ -188,10 +188,10 @@ class WeatherIntelligencePlatform {
                         <label>动态类型</label>
                         <select id="tocTypeFilter">
                             <option value="">全部类型</option>
-                            <选项值=“AI”>人工智能</选项>
-                            <选项值=“产品”>产品</选项>
+                            <option value="AI">AI</option>
+                            <option value="产品">产品</option>
                             <option value="商业化">商业化</option>
-                            <选项值=“合作”>合作</选项>
+                            <option value="合作">合作</option>
                         </select>
                     </div>
                     <div class="filter-group">
@@ -214,7 +214,7 @@ class WeatherIntelligencePlatform {
 
     // ToB行业总览
     renderToBPage() {
-        返回`
+        return `
             <div class="page-header">
                 <h1 class="page-title">ToB气象行业监测</h1>
                 <p class="page-subtitle">地铁、航空、能源三大行业情报追踪</p>
@@ -231,25 +231,25 @@ class WeatherIntelligencePlatform {
     renderToBIndustryCard(name, data, page) {
         const recentCount = data.filter(d => {
             const days = Math.floor((new Date() - new Date(d.date)) / (1000 * 60 * 60 * 24));
-            返回天数≤7；
-        }）。长度;
+            return days <= 7;
+        }).length;
 
-        返回`
+        return `
             <div class="company-card" onclick="app.renderPage('${page}')">
                 <div class="company-header">
                     <div class="company-logo">${name[0]}</div>
                     <div class="company-info">
-                        <div class="company-name">${name} 气象</div>
+                        <div class="company-name">${name}气象</div>
                         <div class="company-field">ToB行业情报</div>
                     </div>
                 </div>
                 <div class="company-desc">
-                    本周新增信息：<strong>${recentCount}</strong> 条<br>
-                    总情报数：<strong>${data.length}</strong>条<br>
-                    重点情报: <strong>${data.filter(d => d. rating === 'S' || d. rating === 'A').length}</strong> 条
+                    本周新增情报: <strong>${recentCount}</strong> 条<br>
+                    总情报数: <strong>${data.length}</strong> 条<br>
+                    重点情报: <strong>${data.filter(d => d.rating === 'S' || d.rating === 'A').length}</strong> 条
                 </div>
                 <div class="company-stats">
-                    <span>点击查看详情→</span>
+                    <span>点击查看详情 →</span>
                 </div>
             </div>
         `;
@@ -257,14 +257,14 @@ class WeatherIntelligencePlatform {
 
     // ToB行业详情页
     renderToBIndustryPage(industry, data) {
-        返回`
+        return `
             <div class="page-header">
                 <h1 class="page-title">${industry}气象行业监测</h1>
                 <p class="page-subtitle">${industry}领域气象服务动态与趋势分析</p>
             </div>
 
             <div class="ai-summary-card">
-                <h3>🤖AI行业判断：最近${industry}气象行业正在发生什么变化？</h3>
+                <h3>🤖 AI行业判断：最近${industry}气象行业正在发生什么变化？</h3>
                 <p>${this.getIndustryAIJudgment(industry)}</p>
             </div>
 
@@ -276,17 +276,17 @@ class WeatherIntelligencePlatform {
     }
 
     getIndustryAIJudgment(industry) {
-        const judgement = {
-            '地铁': '地铁气象服务正在从单点预警向体系化、标准化演进。多个城市启动智慧气象系统建设，北京、上海等头部城市制定行业标准，标志着市场进入规范化发展期。华风气象等服务商通过标杆建立行业壁垒，市场集中度提升。防汛、积水预警是当前核心需求，人工智能预测能力竞争关键。',
-            '航空': '航空气象服务呈现国际化和人工智能化趋势。外资服务商WNI在国际航线服务上取得突破，国内服务商在本土市场面临民航压力。局AI应用指南显示政策支持AI技术应用，但同时提高了准入气象能力。部分气象开始自建气象能力，对第三方服务商形成挑战。极端决策支持、航路优化是高价值需求方向。',
-            《能源》：“能源气象服务市场保持高速增长，千万级项目出现。政策收紧电力预测要求（15分钟超短期、90%准确率），倒逼企业升级服务。国能日新、东润环能等头部企业通过技术优势持续扩大市场份额。同时，设备制造商（如远景能源）开始切入气象服务，市场竞争加强。现货电力交易、虚拟工厂等新场景带来增量需求。”
+        const judgments = {
+            '地铁': '地铁气象服务正在从单点预警向体系化、智能化演进。多个城市启动智慧气象系统建设，北京、上海等头部城市制定行业标准，显示市场进入规范化发展期。华风气象等服务商通过标杆项目建立行业壁垒，市场集中度提升。防汛、积水预警是当前核心需求，AI预测能力成为竞争关键。',
+            '航空': '航空气象服务呈现国际化和AI化两大趋势。外资服务商WNI在国际航线服务上取得突破，国内服务商在本土市场面临竞争压力。民航局AI应用指南显示政策支持AI技术应用，但同时提高了准入门槛。部分航空公司开始自建气象能力，对第三方服务商形成挑战。极端天气决策支持、航路优化是高价值需求方向。',
+            '能源': '能源气象服务市场保持高速增长，千万级项目频繁出现。政策收紧功率预测要求（15分钟超短期、90%准确率），倒逼企业升级服务。国能日新、东润环能等头部企业通过技术优势持续扩大市场份额。同时，设备制造商（如远景能源）开始切入气象服务，市场竞争加剧。电力现货交易、虚拟电厂等新场景带来增量需求。'
         };
-        返回判断[​​行业] || '暂无AI判断';
+        return judgments[industry] || '暂无AI判断';
     }
 
     // 行业趋势页面
     renderTrendsPage() {
-        返回`
+        return `
             <div class="page-header">
                 <h1 class="page-title">行业趋势分析</h1>
                 <p class="page-subtitle">基于多源情报的趋势识别与影响分析</p>
@@ -296,21 +296,21 @@ class WeatherIntelligencePlatform {
                 <div class="filter-row">
                     <div class="filter-group">
                         <label>趋势分类</label>
-                        <选择>
+                        <select>
                             <option value="">全部趋势</option>
-                            <选项值=“综合”>综合</选项>
+                            <option value="综合">综合</option>
                             <option value="ToC">ToC</option>
                             <option value="ToB">ToB</option>
                         </select>
                     </div>
                     <div class="filter-group">
                         <label>趋势阶段</label>
-                        <选择>
+                        <select>
                             <option value="">全部阶段</option>
                             <option value="emerging">萌芽</option>
-                            <option value="加速">加速</option>
+                            <option value="accelerating">加速</option>
                             <option value="mature">成熟</option>
-                            <选项值=“冷却”> 同意</选项>
+                            <option value="cooling">降温</option>
                         </select>
                     </div>
                 </div>
@@ -321,18 +321,18 @@ class WeatherIntelligencePlatform {
     }
 
     renderTrendsList(trends) {
-        返回 trends.map(trend => `
+        return trends.map(trend => `
             <div class="trend-card">
                 <div class="trend-header">
                     <div class="trend-title">${trend.name}</div>
                     <div class="trend-stage ${trend.stage}">${this.getTrendStageText(trend.stage)}</div>
                 </div>
                 <div class="trend-meta">
-                    <span>首次识别：${trend.firstSeen}</span>
-                    <span>最近更新：${trend.lastUpdate}</span>
-                    <span>相关事件：${trend.latedEvents}条</span>
+                    <span>首次识别: ${trend.firstSeen}</span>
+                    <span>最近更新: ${trend.lastUpdate}</span>
+                    <span>相关事件: ${trend.relatedEvents}条</span>
                     <div class="trend-strength">
-                        <span>趋势强度：</span>
+                        <span>趋势强度:</span>
                         <div class="strength-bar">
                             ${[1,2,3,4,5].map(i => `<div class="strength-dot ${i <= trend.strength ? 'active' : ''}"></div>`).join('')}
                         </div>
@@ -344,7 +344,7 @@ class WeatherIntelligencePlatform {
                     ${trend.aiJudgment}
                 </div>
                 <div class="trend-companies">
-                    <span style="font-size: 0.9rem; color: var(--text-secondary); margin-right: 0.5rem;">涉及企业：</span>
+                    <span style="font-size: 0.9rem; color: var(--text-secondary); margin-right: 0.5rem;">涉及企业:</span>
                     ${trend.companies.map(c => `<span class="company-tag">${c}</span>`).join('')}
                 </div>
                 <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-secondary);">
@@ -357,16 +357,16 @@ class WeatherIntelligencePlatform {
     getTrendStageText(stage) {
         const stages = {
             'emerging': '萌芽',
-            '加速': '加速',
+            'accelerating': '加速',
             'mature': '成熟',
-            '冷却': '很'
+            'cooling': '降温'
         };
-        返回 stages[stage] || stage;
+        return stages[stage] || stage;
     }
 
     // 重点企业页面
     renderCompaniesPage() {
-        返回`
+        return `
             <div class="page-header">
                 <h1 class="page-title">重点企业监测</h1>
                 <p class="page-subtitle">ToC天气企业与ToB气象服务商动态追踪</p>
@@ -383,15 +383,15 @@ class WeatherIntelligencePlatform {
                             </div>
                         </div>
                         <div class="company-desc">
-                            <strong>核心产品：</strong> ${company.products.join('、')}<br>
-                            <strong>商业模式：</strong> ${company.businessModel}
+                            <strong>核心产品:</strong> ${company.products.join('、')}<br>
+                            <strong>商业模式:</strong> ${company.businessModel}
                         </div>
                         <div class="company-stats">
-                            <span>近期动态：${company.recentActivity}条</span>
-                            <span>AI关注度：${company.aiScore}/100</span>
+                            <span>近期动态: ${company.recentActivity}条</span>
+                            <span>AI关注度: ${company.aiScore}/100</span>
                         </div>
                         <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
-                            <strong style="color: var(--primary-color); font-size: 0.9rem;">近期战略方向：</strong>
+                            <strong style="color: var(--primary-color); font-size: 0.9rem;">近期战略方向:</strong>
                             <p style="font-size: 0.9rem; line-height: 1.6; margin-top: 0.5rem; color: var(--text-secondary);">
                                 ${company.recentStrategy}
                             </p>
@@ -404,27 +404,27 @@ class WeatherIntelligencePlatform {
 
     // AI分析页面
     renderAIPage() {
-        返回`
+        return `
             <div class="page-header">
                 <h1 class="page-title">AI情报助手</h1>
                 <p class="page-subtitle">基于情报库的智能问答与分析</p>
             </div>
 
             <div class="ai-summary-card" style="margin-bottom: 2rem;">
-                <h3>💡你可以问我这些问题：</h3>
+                <h3>💡 你可以问我这些问题：</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem;">
-                    <button class="report-btn" onclick="app.askAI('最近天气竞品都在做AI功能？')" style="background: rgba(255,255,255,0.2); border: 1px Solid rgba(255,255,255,0.3);">最近天气竞品都在做AI功能？</button>
-                    <button class="report-btn" onclick="app.askAI('AccuWeather最近三个月重点在做什么？')" style="background: rgba(255,255,255,0.2); border: 1px Solid rgba(255,255,255,0.3);">AccuWeather最近三个月重点在做什么？</button>
-                    <button class="report-btn" onclick="app.askAI('最近边境有哪些新的气象需求？')" style="background: rgba(255,255,255,0.2); border: 1px Solid rgba(255,255,255,0.3);">最近边境有哪些新的气象需求？</button>
-                    <button class="report-btn" onclick="app.askAI('能源行业电力预测近期有什么政策变化？')" style="background: rgba(255,255,255,0.2); border: 1px Solid rgba(255,255,255,0.3);">能源行业电力预测近期有什么政策变化？</button>
+                    <button class="report-btn" onclick="app.askAI('最近天气竞品都在做什么AI功能？')" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);">最近天气竞品都在做什么AI功能？</button>
+                    <button class="report-btn" onclick="app.askAI('AccuWeather最近三个月重点在做什么？')" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);">AccuWeather最近三个月重点在做什么？</button>
+                    <button class="report-btn" onclick="app.askAI('最近航空公司有哪些新的气象需求？')" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);">最近航空公司有哪些新的气象需求？</button>
+                    <button class="report-btn" onclick="app.askAI('能源行业功率预测近期有什么政策变化？')" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);">能源行业功率预测近期有什么政策变化？</button>
                 </div>
             </div>
 
-            <div class="ai-chat-c​​ontainer">
+            <div class="ai-chat-container">
                 <div class="chat-messages" id="chatMessages">
                     <div class="chat-message ai">
                         <div class="message-header">AI情报助手</div>
-                        <div class="message-content">您好！我是AI情报助手，可以帮助您分析气象行业情报。请输入您的问题，我会根据平台现有情报为您提供分析。</div>
+                        <div class="message-content">您好！我是AI情报助手，可以帮您分析气象行业情报。请输入您的问题，我会基于平台已有情报为您提供分析。</div>
                     </div>
                 </div>
                 <div class="chat-input-container">
@@ -435,7 +435,7 @@ class WeatherIntelligencePlatform {
         `;
     }
 
-    askAI(问题) {
+    askAI(question) {
         document.getElementById('aiInput').value = question;
         this.sendAIMessage();
     }
@@ -443,7 +443,7 @@ class WeatherIntelligencePlatform {
     sendAIMessage() {
         const input = document.getElementById('aiInput');
         const question = input.value.trim();
-        如果（!question）返回；
+        if (!question) return;
 
         const messagesContainer = document.getElementById('chatMessages');
 
@@ -455,7 +455,7 @@ class WeatherIntelligencePlatform {
             </div>
         `;
 
-        // 人工智能回答
+        // AI回答
         const answer = this.generateAIAnswer(question);
         setTimeout(() => {
             messagesContainer.innerHTML += `
@@ -472,31 +472,31 @@ class WeatherIntelligencePlatform {
     }
 
     generateAIAnswer(question) {
-        // 简化的AI应答生成逻辑
+        // 简化的AI回答生成逻辑
         if (question.includes('AI功能')) {
-            返回`
+            return `
                 <strong>核心结论：</strong>天气竞品正在将AI从辅助工具升级为核心功能，主要集中在三个方向：<br><br>
 
-                <strong>1.人工智能预警预测</strong><br>
+                <strong>1. AI预警预测</strong><br>
                 • AccuWeather推出AI极端天气预警系统，准确率提升40%<br>
-                • 多家企业强化人工智能驱动的分钟级降水预测<br><br>
+                • 多家企业强化AI驱动的分钟级降水预测<br><br>
 
-                2. 生成式AI交互</strong><br>
-                • Weather Channel 集成ChatGPT 提供对话式天气查询<br>
+                <strong>2. 生成式AI交互</strong><br>
+                • The Weather Channel集成ChatGPT提供对话式天气查询<br>
                 • 彩云天气推出AI气象播报员<br><br>
 
-                3. AI个性化推荐</strong><br>
-                • 基于用户行为的 AI 天气建议<br>
-                • AI驾驶的穿衣、出行建议<br><br>
+                <strong>3. AI个性化推荐</strong><br>
+                • 基于用户行为的AI天气建议<br>
+                • AI驱动的穿衣、出行建议<br><br>
 
-                <strong>趋势判断：</strong>生成式AI正在从尝鲜功能向核心天气交互方式演进，未来获取可能以对话为入口。<br><br>
+                <strong>趋势判断：</strong>生成式AI正在从尝鲜功能向核心交互方式演进，未来天气获取可能以对话为主要入口。<br><br>
 
-                <strong>对墨迹影响：</strong>加快需要AI产品化进程，重点关注中文场景下的AI体验优化。<br><br>
+                <strong>对墨迹影响：</strong>需要加快AI产品化进程，重点关注中文场景下的AI体验优化。<br><br>
 
                 <strong>来源：</strong>基于平台近30天情报，涉及AccuWeather、The Weather Channel、彩云天气等5家企业。
             `;
         } else if (question.includes('AccuWeather')) {
-            返回`
+            return `
                 <strong>核心结论：</strong>AccuWeather近3个月战略重点明确聚焦在AI能力建设上。<br><br>
 
                 <strong>事实依据：</strong><br>
@@ -504,71 +504,71 @@ class WeatherIntelligencePlatform {
                 • 8月中旬：上线生成式AI天气摘要功能<br>
                 • 7月底：发布AI驱动的过敏指数预测<br><br>
 
-                <strong>案例典型：</strong>AI极端天气预警系统是其核心突破，可提前72小时预测极端天气，准确率提升40%，已在美国、欧洲市场上线。<br><br>
+                <strong>典型案例：</strong>AI极端天气预警系统是其核心突破，可提前72小时预测极端天气，准确率提升40%，已在美国、欧洲市场上线。<br><br>
 
-                <strong>趋势判断：</strong>AccuWeather明确将AI定位为核心，通过AI提升预测准确性和用户体验，建立技术护城河。<br><br>
+                <strong>趋势判断：</strong>AccuWeather明确将AI定位为核心竞争力，通过AI提升预测准确性和用户体验，建立技术护城河。<br><br>
 
-                <strong>对墨迹影响：</strong>AccuWeather在AI预警能力上形成了领先优势，墨迹需要评估自身AI预警能力差距。<br><br>
+                <strong>对墨迹影响：</strong>AccuWeather在AI预警能力上形成领先优势，墨迹需要评估自身AI预警能力差距。<br><br>
 
                 <strong>来源：</strong>基于AccuWeather官方信息和行业报道，共3条情报。
             `;
-        } else if (question.includes('航空') && Question.includes('需求')) {
-            返回`
-                <strong>核心结论：</strong>地方政府气象需求正在从“数据提供”向“决策支持”演进。<br><br>
+        } else if (question.includes('航空') && question.includes('需求')) {
+            return `
+                <strong>核心结论：</strong>航空公司的气象需求正在从"数据提供"向"决策支持"演进。<br><br>
 
                 <strong>识别到的新需求：</strong><br>
-                1. <strong>天气极端AI决策支持</strong>（出现15次）<br>
-                   税务需要AI在天气极端下提供航班调度、航路优化等综合决策建议<br><br>
+                1. <strong>极端天气AI决策支持</strong>（出现15次）<br>
+                   航空公司需要AI在极端天气下提供航班调度、航路优化等综合决策建议<br><br>
 
                 2. <strong>全球航线气象服务</strong>（出现8次）<br>
                    国际航线需要全球数据覆盖和多语言支持<br><br>
 
                 3. <strong>航路燃油优化</strong>（出现6次）<br>
-                   结合天气和消耗成本的航路优化需求<br><br>
+                   结合天气和燃油成本的航路优化需求<br><br>
 
-                <strong>案例典型：</strong><br>
+                <strong>典型案例：</strong><br>
                 • 国航与WNI合作，覆盖200+国际航线<br>
-                •东航自建航路风险天气评估系统，全年率下降15%<br><br>
+                • 东航自建航路天气风险评估系统，延误率下降15%<br><br>
 
-                <strong>对墨迹影响：</strong>航空气象是高价值市场，但需要全球数据能力和航空行业深度理解，进入较高水平。<br><br>
+                <strong>对墨迹影响：</strong>航空气象是高价值市场，但需要全球数据能力和航空行业深度理解，进入门槛较高。<br><br>
 
                 <strong>来源：</strong>基于近60天航空行业情报，涉及国航、东航、WNI等。
             `;
-        } else if (question.includes('能源') && Question.includes('政策')) {
-            返回`
-                <strong>核心结论：</strong>能源行业电力预测政策正在收紧，技术要求显着提升。<br><br>
+        } else if (question.includes('能源') && question.includes('政策')) {
+            return `
+                <strong>核心结论：</strong>能源行业功率预测政策正在收紧，技术要求显著提升。<br><br>
 
                 <strong>最新政策变化：</strong><br>
-                <strong>《新能源电力预测管理办法（2026年修订版）》</strong><br>
+                <strong>《新能源功率预测管理办法（2026年修订版）》</strong><br>
                 发布时间：2026年9月4日<br>
                 实施时间：2027年1月1日<br><br>
 
                 <strong>核心变化：</strong><br>
                 • 超短期预测时间间隔：30分钟 → 15分钟<br>
                 • 短期预测准确率要求：85% → 90%<br>
-                • 针对人工智能算法的明确规范的新增内容<br><br>
+                • 新增对AI算法的明确规范<br><br>
 
                 <strong>政策影响分析：</strong><br>
-                1.倒逼新能源企业升级预测系统<br>
-                2. 提高气象服务商技术开发<br>
+                1. 倒逼新能源企业升级预测系统<br>
+                2. 提高气象服务商技术门槛<br>
                 3. 带来市场需求升级和服务溢价<br><br>
 
                 <strong>市场反应：</strong><br>
                 • 国能日新等头部企业已达标，加速市场拓展<br>
                 • 部分中小服务商面临技术升级压力<br><br>
 
-                <strong>对墨迹影响：</strong>变化了政策提升了进入产权，如考虑进入需要满足更高的技术标准。<br><br>
+                <strong>对墨迹影响：</strong>政策变化提升了进入门槛，如考虑进入需要满足更高技术标准。<br><br>
 
                 <strong>来源：</strong>国家能源局官方文件及行业分析。
             `;
         }
 
-        return `基于您的问题"${question}"，我正在分析平台情报库中的相关信息。这是演示版本，实际部署后会提供基于真实情报的深度分析。`;
+        return `基于您的问题"${question}"，我正在分析平台情报库中的相关信息。这是Demo版本，实际部署后会提供基于真实情报的深度分析。`;
     }
 
     attachAIEventListeners() {
         document.getElementById('aiInput').addEventListener('keypress', (e) => {
-            如果 (e.key === 'Enter') {
+            if (e.key === 'Enter') {
                 this.sendAIMessage();
             }
         });
@@ -577,13 +577,13 @@ class WeatherIntelligencePlatform {
     // 情报库页面
     renderLibraryPage() {
         const allIntel = [
-            ...MOCK_DATA.tocIntelligence，
-            ...MOCK_DATA.tobIntelligence.metro，
-            ...MOCK_DATA.tobIntelligence.aviation，
+            ...MOCK_DATA.tocIntelligence,
+            ...MOCK_DATA.tobIntelligence.metro,
+            ...MOCK_DATA.tobIntelligence.aviation,
             ...MOCK_DATA.tobIntelligence.energy
         ].sort((a, b) => new Date(b.date) - new Date(a.date));
 
-        返回`
+        return `
             <div class="page-header">
                 <h1 class="page-title">情报库</h1>
                 <p class="page-subtitle">完整情报数据库，支持多维度检索</p>
@@ -593,30 +593,30 @@ class WeatherIntelligencePlatform {
                 <div class="filter-row">
                     <div class="filter-group">
                         <label>业务领域</label>
-                        <选择>
+                        <select>
                             <option value="">全部领域</option>
                             <option value="ToC">ToC</option>
                             <option value="地铁">地铁</option>
                             <option value="航空">航空</option>
-                            <选项值=“能源”>能源</选项>
+                            <option value="能源">能源</option>
                         </select>
                     </div>
                     <div class="filter-group">
                         <label>信息类型</label>
-                        <选择>
+                        <select>
                             <option value="">全部类型</option>
-                            <选项值=“产品”>产品</选项>
-                            <选项值=“AI”>人工智能</选项>
-                            <选项值=“技术”>技术</选项>
+                            <option value="产品">产品</option>
+                            <option value="AI">AI</option>
+                            <option value="技术">技术</option>
                             <option value="商业化">商业化</option>
-                            <选项值=“合作”>合作</选项>
+                            <option value="合作">合作</option>
                             <option value="政策">政策</option>
-                            <选项值=“中标”>中标</选项>
+                            <option value="中标">中标</option>
                         </select>
                     </div>
                     <div class="filter-group">
                         <label>重要性</label>
-                        <选择>
+                        <select>
                             <option value="">全部等级</option>
                             <option value="S">S级</option>
                             <option value="A">A级</option>
@@ -625,7 +625,7 @@ class WeatherIntelligencePlatform {
                     </div>
                     <div class="filter-group">
                         <label>时间范围</label>
-                        <选择>
+                        <select>
                             <option value="">全部时间</option>
                             <option value="7">近7天</option>
                             <option value="30">近30天</option>
@@ -666,7 +666,7 @@ class WeatherIntelligencePlatform {
 
     // 报告中心页面
     renderReportsPage() {
-        返回`
+        return `
             <div class="page-header">
                 <h1 class="page-title">报告中心</h1>
                 <p class="page-subtitle">情报周报、月报与专题分析生成</p>
@@ -694,7 +694,7 @@ class WeatherIntelligencePlatform {
 
     // 辅助方法
     renderIntelList(intelList) {
-        返回 intelList.map(intel => `
+        return intelList.map(intel => `
             <div class="intel-card">
                 <div class="intel-header">
                     <div class="intel-title">${intel.title}</div>
@@ -709,17 +709,17 @@ class WeatherIntelligencePlatform {
                 <div class="intel-summary">${intel.summary}</div>
                 <div class="intel-footer">
                     <div class="intel-analysis">
-                        <strong>人工智能分析：</strong>${intel.aiAnalysis}
+                        <strong>AI分析：</strong>${intel.aiAnalysis}
                     </div>
                     <div class="intel-analysis" style="background: #fef3f7;">
                         <strong>对墨迹影响：</strong>${intel.impactOnMoji}
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="intel-source">
-                            来源： <a href="${intel.source}" target="_blank">查看原文</a>
+                            来源: <a href="${intel.source}" target="_blank">查看原文</a>
                         </div>
                         <div style="font-size: 0.85rem; color: var(--text-secondary);">
-                            评级原因：${intel. ratingReason}
+                            评级原因: ${intel.ratingReason}
                         </div>
                     </div>
                 </div>
@@ -728,7 +728,7 @@ class WeatherIntelligencePlatform {
     }
 
     renderToBPreview(industry, data) {
-        返回`
+        return `
             <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: var(--shadow);">
                 <h3 style="font-size: 1.2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border-color);">
                     ${industry}气象
@@ -749,10 +749,10 @@ class WeatherIntelligencePlatform {
     }
 
     getKeyIntel() {
-        返回 [
-            ...MOCK_DATA.tocIntelligence，
-            ...MOCK_DATA.tobIntelligence.metro，
-            ...MOCK_DATA.tobIntelligence.aviation，
+        return [
+            ...MOCK_DATA.tocIntelligence,
+            ...MOCK_DATA.tobIntelligence.metro,
+            ...MOCK_DATA.tobIntelligence.aviation,
             ...MOCK_DATA.tobIntelligence.energy
         ].filter(intel => intel.rating === 'S' || intel.rating === 'A')
          .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -761,15 +761,15 @@ class WeatherIntelligencePlatform {
 
     handleSearch() {
         const query = document.getElementById('globalSearch').value;
-        如果（查询）{
-            alert(`搜索功能开发中...\n关键词搜索: ${query}`);
+        if (query) {
+            alert(`搜索功能开发中...\n搜索关键词: ${query}`);
         }
     }
 
     attachToCEventListeners() {
         ['tocCompanyFilter', 'tocTypeFilter', 'tocRatingFilter'].forEach(id => {
             const element = document.getElementById(id);
-            如果（元素）{
+            if (element) {
                 element.addEventListener('change', () => {
                     this.filterToCIntelligence();
                 });
@@ -786,7 +786,7 @@ class WeatherIntelligencePlatform {
             const matchCompany = !companyFilter || intel.company === companyFilter;
             const matchType = !typeFilter || intel.type === typeFilter;
             const matchRating = !ratingFilter || intel.rating === ratingFilter;
-            返回匹配公司、匹配类型和匹配评级；
+            return matchCompany && matchType && matchRating;
         });
 
         document.getElementById('tocIntelList').innerHTML = this.renderIntelList(filtered);
@@ -802,7 +802,7 @@ class WeatherIntelligencePlatform {
 }
 
 // 初始化应用
-让应用程序；
+let app;
 document.addEventListener('DOMContentLoaded', () => {
     app = new WeatherIntelligencePlatform();
 });
