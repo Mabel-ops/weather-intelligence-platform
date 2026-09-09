@@ -30,7 +30,7 @@ body {
     min-height: 100vh;
 }
 
-/* 侧边栏 */
+/* 渚ц竟鏍� */
 .sidebar {
     width: 260px;
     background: var(--sidebar-bg);
@@ -106,7 +106,7 @@ body {
     color: white;
 }
 
-/* 主内容区 */
+/* 涓诲唴瀹瑰尯 */
 .main-content {
     margin-left: 260px;
     flex: 1;
@@ -114,7 +114,7 @@ body {
     flex-direction: column;
 }
 
-/* 顶部栏 */
+/* 椤堕儴鏍� */
 .top-bar {
     background: white;
     padding: 1.5rem 2rem;
@@ -168,13 +168,13 @@ body {
     color: var(--text-secondary);
 }
 
-/* 页面容器 */
+/* 椤甸潰瀹瑰櫒 */
 #pageContainer {
     flex: 1;
     padding: 2rem;
 }
 
-/* 页面标题 */
+/* 椤甸潰鏍囬 */
 .page-header {
     margin-bottom: 2rem;
 }
@@ -190,7 +190,7 @@ body {
     color: var(--text-secondary);
 }
 
-/* 数据卡片网格 */
+/* 鏁版嵁鍗＄墖缃戞牸 */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -229,7 +229,7 @@ body {
     color: var(--success-color);
 }
 
-/* AI摘要卡片 */
+/* AI鎽樿鍗＄墖 */
 .ai-summary-card {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
@@ -252,7 +252,7 @@ body {
     opacity: 0.95;
 }
 
-/* 区块标题 */
+/* 鍖哄潡鏍囬 */
 .section-title {
     font-size: 1.5rem;
     font-weight: 600;
@@ -261,7 +261,7 @@ body {
     border-bottom: 3px solid var(--primary-color);
 }
 
-/* 情报卡片 */
+/* 鎯呮姤鍗＄墖 */
 .intel-card {
     background: white;
     padding: 1.5rem;
@@ -382,7 +382,7 @@ body {
     text-decoration: underline;
 }
 
-/* 筛选栏 */
+/* 绛涢€夋爮 */
 .filter-bar {
     background: white;
     padding: 1.5rem;
@@ -425,7 +425,7 @@ body {
     border-color: var(--primary-color);
 }
 
-/* 趋势卡片 */
+/* 瓒嬪娍鍗＄墖 */
 .trend-card {
     background: white;
     padding: 1.5rem;
@@ -529,7 +529,7 @@ body {
     color: var(--text-secondary);
 }
 
-/* 企业卡片 */
+/* 浼佷笟鍗＄墖 */
 .company-card {
     background: white;
     padding: 1.5rem;
@@ -591,7 +591,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* AI聊天界面 */
+/* AI鑱婂ぉ鐣岄潰 */
 .ai-chat-container {
     background: white;
     border-radius: 10px;
@@ -665,7 +665,7 @@ body {
     background: var(--secondary-color);
 }
 
-/* 情报库表格 */
+/* 鎯呮姤搴撹〃鏍� */
 .intel-table {
     background: white;
     border-radius: 10px;
@@ -701,7 +701,7 @@ body {
     background: #f8fafc;
 }
 
-/* 报告卡片 */
+/* 鎶ュ憡鍗＄墖 */
 .report-card {
     background: white;
     padding: 1.5rem;
@@ -742,7 +742,7 @@ body {
     line-height: 1.6;
 }
 
-/* Demo标识 */
+/* Demo鏍囪瘑 */
 .demo-badge {
     position: fixed;
     bottom: 20px;
@@ -757,7 +757,7 @@ body {
     z-index: 1000;
 }
 
-/* 响应式 */
+/* 鍝嶅簲寮� */
 @media (max-width: 1024px) {
     .sidebar {
         width: 200px;
@@ -789,5 +789,71 @@ body {
     .chat-message.ai {
         margin-left: 0;
         margin-right: 0;
+    }
+}
+
+/* Tab鏍峰紡 */
+.tab-container {
+    margin-top: 2rem;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 1rem;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: var(--primary-color);
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+.tab-content {
+    position: relative;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
