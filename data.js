@@ -142,6 +142,190 @@ const MOCK_DATA = {
         }
     ],
 
+    // ToC竞品 - App版本更新
+    tocAppUpdates: [
+        {
+            id: 1,
+            company: "AccuWeather",
+            version: "v28.5.0",
+            date: "2026-09-05",
+            rating: "S",
+            updateContent: "• 新增AI极端天气预警系统\n• 支持提前72小时预测极端天气\n• 优化分钟级降水预报准确率\n• 新增自然语言预警推送",
+            highlights: "AI预警系统是本次更新的核心亮点，AccuWeather将深度学习模型应用于极端天气预测，准确率提升40%。系统可自动识别用户位置的极端天气风险并主动推送，预警提前量达72小时，在行业内形成明显领先优势。",
+            insightForMoji: "AccuWeather将AI能力从辅助工具升级为核心预警功能，显示AI正在成为天气应用的核心竞争力。墨迹天气需要评估自身AI预警能力的差距，考虑加大AI气象预测研发投入，避免在核心功能上被竞品拉开差距。",
+            source: "App Store / Google Play"
+        },
+        {
+            id: 2,
+            company: "The Weather Channel",
+            version: "v52.8.1",
+            date: "2026-09-04",
+            rating: "A",
+            updateContent: "• 集成ChatGPT对话式天气查询\n• 支持30+语言自然语言交互\n• 新增AI穿衣建议和出行规划\n• 优化雷达地图加载速度",
+            highlights: "首次将ChatGPT深度集成到天气查询流程中，用户可通过自然对话获取个性化天气建议。支持复杂场景问答，如'明天适合带孩子去公园吗？'系统会综合天气、温度、空气质量给出建议。多语言支持显示其全球化战略。",
+            insightForMoji: "生成式AI正在改变用户与天气信息的交互方式，从单向查询向双向对话演进。墨迹需要关注中文场景下的AI对话体验，探索更符合国内用户习惯的交互方式，如结合本地生活场景（外卖、出行、穿搭）提供建议。",
+            source: "App Store / Google Play"
+        },
+        {
+            id: 3,
+            company: "Windy.com",
+            version: "v39.2.0",
+            date: "2026-09-03",
+            rating: "A",
+            updateContent: "• 上线全球实时空气质量3D可视化\n• 整合NASA、ESA卫星数据\n• 支持PM2.5、PM10、臭氧等多污染物展示\n• 新增污染物扩散动画",
+            highlights: "Windy.com持续强化其可视化优势，3D空气质量地图可旋转查看不同高度的污染物分布。整合全球权威机构的卫星数据，提升了数据的专业性和权威性。污染物扩散动画帮助用户理解空气质量变化趋势。",
+            insightForMoji: "可视化能力是差异化竞争点，但需要平衡专业性与易用性。Windy.com的专业工具定位适合气象爱好者，墨迹作为大众产品需要评估是否在空气质量展示上投入，以及如何简化呈现方式。",
+            source: "App Store / Google Play"
+        },
+        {
+            id: 4,
+            company: "彩云天气",
+            version: "v7.12.0",
+            date: "2026-09-02",
+            rating: "A",
+            updateContent: "• 上线AI虚拟播报员\n• 支持自定义播报风格和内容\n• 优化分钟级降水预报算法\n• 新增天气变化提醒",
+            highlights: "AI虚拟播报员基于数字人技术，可生成个性化的语音+视频天气播报。用户可选择播报员形象、声音风格和播报内容重点。功能已向会员开放，日均生成播报视频超10万条，用户接受度较高。",
+            insightForMoji: "AI内容生成是创新方向，但需要关注用户真实需求和留存数据。彩云天气的数据显示用户对AI播报有一定接受度。墨迹可小范围测试类似功能，验证用户接受度和付费意愿后再决定是否大规模推广。",
+            source: "App Store / 应用宝"
+        },
+        {
+            id: 5,
+            company: "Weather & Radar",
+            version: "v2.48.5",
+            date: "2026-09-01",
+            rating: "A",
+            updateContent: "• 新增全球闪电实时追踪\n• 升级多普勒雷达显示效果\n• 支持自定义雷达图层\n• 优化极端天气推送逻辑",
+            highlights: "Weather & Radar持续强化其雷达可视化核心优势，闪电追踪数据来自全球闪电探测网络，延迟低于5秒。自定义图层功能允许专业用户叠加多种气象要素，满足深度分析需求。极端天气推送支持精细化阈值设置。",
+            insightForMoji: "雷达可视化是专业用户和极端天气场景的重要功能。墨迹需要评估在雷达地图上的投入力度，以及如何在大众化产品定位下提供专业功能，可考虑通过会员功能区分普通用户和专业用户需求。",
+            source: "App Store / Google Play"
+        },
+        {
+            id: 6,
+            company: "Weathernews",
+            version: "v5.2.0",
+            date: "2026-08-30",
+            rating: "A",
+            updateContent: "• 强化台风路径预测精度\n• 新增海洋天气专业服务\n• 优化降雪预报可视化\n• 支持Apple Watch独立运行",
+            highlights: "Weathernews强化其在亚太地区的台风预测优势，结合日本气象厅数据和自有AI模型，台风路径预测准确率达行业领先水平。海洋天气服务针对渔业、航运等专业用户，显示其垂直化策略。Apple Watch独立应用提升便捷性。",
+            insightForMoji: "日本竞品在台风等灾害性天气预报上积累深厚，其专业化路线值得借鉴。墨迹可考虑在台风、暴雨等中国用户高关注的灾害天气场景上做深度优化，建立差异化优势。可穿戴设备支持也是提升用户体验的方向。",
+            source: "App Store（日本区）"
+        },
+        {
+            id: 7,
+            company: "天气通",
+            version: "v8.05",
+            date: "2026-08-28",
+            rating: "B",
+            updateContent: "• 优化首页布局和UI设计\n• 新增语音播报功能\n• 支持15天趋势预报\n• 修复部分机型闪退问题",
+            highlights: "UI改版采用更简洁的卡片式设计，减少信息密度，降低认知负担。语音播报功能支持多种方言（粤语、四川话等），针对中老年用户优化。15天预报满足用户对长期天气的关注需求。",
+            insightForMoji: "天气通在UI简化和适老化功能上有所探索。语音播报支持方言是针对特定用户群体的差异化功能。墨迹可关注不同年龄段用户的差异化需求，考虑推出简化版、长辈模式或无障碍优化。",
+            source: "应用宝 / 华为应用市场"
+        },
+        {
+            id: 8,
+            company: "看天",
+            version: "v3.2.1",
+            date: "2026-08-25",
+            rating: "B",
+            updateContent: "• 新增农业天气指数\n• 支持农作物病虫害预警\n• 优化乡镇级天气预报\n• 新增农事建议功能",
+            highlights: "看天专注农业气象服务，新增的农作物病虫害预警结合天气数据和农业知识，为农户提供实用建议。乡镇级预报精度提升，农事建议涵盖播种、施肥、收割等关键环节。垂直化定位清晰。",
+            insightForMoji: "垂直场景的深耕是差异化竞争策略。看天在农业气象上的探索显示细分市场的潜力。墨迹可评估是否在某些垂直场景（如户外运动、旅游、钓鱼等）做专业化尝试，通过深度满足特定用户群体需求建立竞争壁垒。",
+            source: "应用宝 / 小米应用商店"
+        }
+    ],
+
+    // ToC竞品 - 公司动态
+    tocCompanyNews: [
+        {
+            id: 101,
+            company: "AccuWeather",
+            date: "2026-09-06",
+            type: "战略",
+            rating: "S",
+            title: "AccuWeather宣布AI战略升级，计划3年投入2亿美元",
+            content: "AccuWeather宣布全面升级AI战略，未来3年将投入2亿美元用于AI气象预测研发。公司CEO表示，AI将成为AccuWeather的核心竞争力，目标是在2028年实现全球最准确的极端天气预警。投资将重点用于深度学习模型研发、计算基础设施建设和AI人才引进。",
+            source: "AccuWeather官网 / TechCrunch",
+            impactOnMoji: "头部竞品大举押注AI，显示行业共识：AI是天气服务的未来。墨迹需要评估自身AI研发投入是否足够，避免在技术竞赛中落后。2亿美元投入显示竞争激烈程度，需要思考如何在资源有限的情况下找到差异化的AI应用方向。"
+        },
+        {
+            id: 102,
+            company: "The Weather Channel",
+            date: "2026-09-03",
+            type: "合作",
+            rating: "A",
+            title: "The Weather Channel x OpenAI：深化AI天气服务合作",
+            content: "The Weather Channel与OpenAI达成深度合作协议，OpenAI将为其定制专用AI模型，用于天气解释、风险评估和个性化建议。合作期限3年，金额未披露。双方将共同探索多模态AI在天气服务中的应用，包括图像识别、语音交互等。",
+            source: "TechCrunch / The Verge",
+            impactOnMoji: "竞品通过与AI头部企业合作快速获得技术能力，避免从零开始自研。墨迹可考虑类似的技术合作路径，如与国内AI大模型厂商（百度、阿里、字节）合作，快速获得生成式AI能力，同时保持产品差异化。"
+        },
+        {
+            id: 103,
+            company: "Windy.com",
+            date: "2026-08-30",
+            type: "技术",
+            rating: "B",
+            title: "Windy.com开源气象可视化框架WinViz",
+            content: "Windy.com宣布开源其内部使用的气象可视化框架WinViz，支持WebGL渲染、多图层叠加、实时数据更新等功能。开源社区反响热烈，已有多家气象机构和开发者采用。Windy.com表示开源是为了推动行业技术进步。",
+            source: "Windy.com官网 / GitHub",
+            impactOnMoji: "开源策略帮助Windy.com建立技术影响力和开发者生态。墨迹可评估是否开源部分非核心技术（如可视化组件），通过开源社区获得外部贡献和品牌影响力。但需要注意核心技术的保护。"
+        },
+        {
+            id: 104,
+            company: "彩云天气",
+            date: "2026-08-25",
+            type: "合作",
+            rating: "A",
+            title: "彩云天气 x 华为：共建鸿蒙原生天气服务",
+            content: "彩云天气与华为达成战略合作，将为HarmonyOS NEXT开发鸿蒙原生天气应用，深度适配鸿蒙生态。应用将整合华为端侧AI能力，利用鸿蒙分布式特性实现多设备协同。预计2027年Q1上线，华为将在应用市场给予流量扶持。",
+            source: "36氪 / 华为官网",
+            impactOnMoji: "国内竞品积极拥抱鸿蒙生态，抢占新平台红利。墨迹需要评估鸿蒙原生开发的优先级，避免在新生态中落后。鸿蒙的分布式特性和端侧AI能力可能带来新的产品创新机会，值得重点关注。"
+        },
+        {
+            id: 105,
+            company: "Weather & Radar",
+            date: "2026-08-20",
+            type: "融资",
+            rating: "A",
+            title: "Weather & Radar完成1500万欧元B轮融资",
+            content: "德国天气应用Weather & Radar宣布完成1500万欧元B轮融资，由欧洲气候科技基金Climate Tech Ventures领投，现有投资人跟投。资金将用于扩大欧洲市场份额、强化雷达技术研发和团队扩张。公司透露用户数已突破1000万，付费率达8%。",
+            source: "TechCrunch Europe / Crunchbase",
+            impactOnMoji: "资本持续看好天气应用赛道，特别是有技术差异化的产品。8%付费率显示专业工具有付费潜力。墨迹需要持续强化自身技术护城河，保持竞争力。可关注欧洲市场对隐私保护、数据透明度的高要求，国内合规趋势可能借鉴。"
+        },
+        {
+            id: 106,
+            company: "Weathernews",
+            date: "2026-08-15",
+            type: "技术",
+            rating: "A",
+            title: "Weathernews推出新一代台风预测AI模型",
+            content: "Weathernews发布新一代台风路径预测AI模型，结合卫星数据、海洋浮标数据和历史台风数据训练。模型在2023-2025年台风数据上的回测显示，72小时路径预测误差比传统方法降低15%。该模型已应用于日本、韩国、台湾等亚太市场。",
+            source: "Weathernews技术博客",
+            impactOnMoji: "台风预测是亚太地区的核心需求，Weathernews的技术领先值得关注。墨迹可加强台风等灾害性天气的预测能力建设，特别是中国东南沿海地区用户对台风预报的准确性和及时性要求高，这是建立用户信任的关键场景。"
+        },
+        {
+            id: 107,
+            company: "天气通",
+            date: "2026-08-10",
+            type: "合作",
+            rating: "B",
+            title: "天气通 x 中国气象局：接入权威气象数据",
+            content: "天气通宣布与中国气象局达成合作，接入气象局权威气象数据源，包括国家级气象站实测数据、数值预报产品等。合作将提升天气通的预报准确性和数据权威性。气象局表示欢迎更多民营气象企业规范使用官方数据。",
+            source: "天气通官方 / 中国气象局",
+            impactOnMoji: "权威数据源合作提升产品可信度。墨迹需要关注官方数据接入政策变化，确保数据源的合规性和权威性。官方数据的规范使用可能成为行业准入门槛，需要提前布局合作关系。"
+        },
+        {
+            id: 108,
+            company: "看天",
+            date: "2026-08-05",
+            type: "合作",
+            rating: "B",
+            title: "看天 x 农业农村部：共建农业气象服务平台",
+            content: "看天与农业农村部信息中心达成合作，共建农业气象服务平台。平台将整合气象数据、农业生产数据、市场价格数据，为农户提供从种植决策到市场销售的全链路服务。农业农村部将在全国农技推广体系中推广该平台。",
+            source: "农业农村部官网 / 看天官方",
+            impactOnMoji: "垂直场景与政府部门合作能快速建立行业壁垒。看天的农业气象路线显示差异化定位的价值。墨迹可思考是否在某些垂直场景与行业主管部门或头部企业合作，通过B端合作带动C端用户增长。"
+        }
+    ],
+
     // ToB行业情报
     tobIntelligence: {
         metro: [
@@ -283,6 +467,7 @@ const MOCK_DATA = {
         {
             id: 1,
             name: "生成式AI进入天气服务核心链路",
+            category: "ToC",
             stage: "accelerating",
             strength: 4,
             firstSeen: "2026-07-15",
@@ -296,6 +481,7 @@ const MOCK_DATA = {
         {
             id: 2,
             name: "ToB气象服务向定制化、高精度方向演进",
+            category: "ToB",
             stage: "accelerating",
             strength: 4,
             firstSeen: "2026-06-20",
@@ -309,6 +495,7 @@ const MOCK_DATA = {
         {
             id: 3,
             name: "空气质量可视化成为天气APP新战场",
+            category: "ToC",
             stage: "emerging",
             strength: 3,
             firstSeen: "2026-08-10",
@@ -406,6 +593,54 @@ const MOCK_DATA = {
             recentActivity: 5,
             aiScore: 78,
             recentStrategy: "看天专注农业气象垂直场景，通过深度理解农业用户需求建立差异化定位。乡镇级预报和农事建议是其核心优势，显示垂直化策略的潜力。"
+        },
+        {
+            id: 8,
+            name: "The Weather Channel",
+            logo: "TWC",
+            field: ["ToC"],
+            products: ["The Weather Channel App", "Watson AI天气", "Storm Radar"],
+            customers: ["全球C端用户", "企业客户"],
+            businessModel: "To C订阅会员 + 广告 + To B数据服务",
+            recentActivity: 14,
+            aiScore: 93,
+            recentStrategy: "The Weather Channel近期战略重点是深化AI能力，与OpenAI合作开发定制AI模型，将生成式AI整合到天气查询全流程。通过AI对话提升用户体验，探索天气信息交互的新范式。"
+        },
+        {
+            id: 9,
+            name: "Windy.com",
+            logo: "Windy",
+            field: ["ToC"],
+            products: ["Windy App", "气象可视化", "飞行天气"],
+            customers: ["专业用户", "户外爱好者", "飞行员"],
+            businessModel: "To C订阅会员 + 企业授权",
+            recentActivity: 9,
+            aiScore: 82,
+            recentStrategy: "Windy.com专注气象数据可视化，通过强大的地图和动画展示建立技术壁垒。近期开源可视化框架WinViz，通过开源社区建立技术影响力，同时强化3D空气质量展示等专业功能。"
+        },
+        {
+            id: 10,
+            name: "彩云天气",
+            logo: "彩云",
+            field: ["ToC"],
+            products: ["彩云天气App", "分钟级降水预报", "AI播报员"],
+            customers: ["国内C端用户"],
+            businessModel: "To C会员订阅 + 广告 + To B API服务",
+            recentActivity: 11,
+            aiScore: 87,
+            recentStrategy: "彩云天气近期重点在AI内容生成和鸿蒙生态布局。推出AI虚拟播报员功能，与华为合作开发鸿蒙原生应用。继续强化分钟级降水预报的核心优势，探索AI在天气服务中的创新应用。"
+        },
+        {
+            id: 11,
+            name: "WNI",
+            logo: "WNI",
+            field: ["ToB", "航空"],
+            products: ["航空气象服务", "航路优化", "风险评估"],
+            customers: ["航空公司", "机场", "物流企业"],
+            businessModel: "To B专业服务 + 长期合同",
+            recentActivity: 10,
+            aiScore: 89,
+            recentStrategy: "WNI（Weathernews旗下）在航空气象领域深耕多年，近期与中国国航达成战略合作，为国际航线提供全球气象服务。通过高质量专业服务和全球数据能力建立竞争壁垒。"
         }
     ],
 
