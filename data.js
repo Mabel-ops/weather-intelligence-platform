@@ -2,13 +2,55 @@
 
 const MOCK_DATA = {
     "stats": {
-        "weeklyIntel": 7,
-        "keyIntel": 12,
+        "weeklyIntel": 9,
+        "keyIntel": 14,
         "companies": 19,
         "trends": 8
     },
-    "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。AccuWeather等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
+    "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。Windy.com等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
     "tocIntelligence": [
+        {
+            "id": 1789607399071,
+            "title": "Windy.com发布财报",
+            "company": "Windy.com",
+            "field": "ToC",
+            "date": "2026-09-17",
+            "type": "商业",
+            "rating": "S",
+            "summary": "Windy.com宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://windy.com.com/news",
+            "aiAnalysis": "Windy.com此举体现了在技术创新方面的持续投入",
+            "impactOnMoji": "对墨迹天气的影响：建议密切关注用户反馈和市场反应",
+            "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
+        },
+        {
+            "id": 1789607399072,
+            "title": "Weather & Radar优化算法",
+            "company": "Weather & Radar",
+            "field": "ToC",
+            "date": "2026-09-17",
+            "type": "技术",
+            "rating": "A",
+            "summary": "Weather & Radar宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://weather&radar.com/news",
+            "aiAnalysis": "Weather & Radar此举有助于提升用户粘性和市场份额",
+            "impactOnMoji": "对墨迹天气的影响：建议密切关注用户反馈和市场反应",
+            "ratingReason": "重要功能更新，具有较强参考价值"
+        },
+        {
+            "id": 1789607399073,
+            "title": "AccuWeather上线智能分析系统",
+            "company": "AccuWeather",
+            "field": "ToC",
+            "date": "2026-09-17",
+            "type": "AI",
+            "rating": "S",
+            "summary": "AccuWeather宣布推出基于AI的新功能，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://accuweather.com/news",
+            "aiAnalysis": "AccuWeather此举反映了行业向智能化方向发展的趋势",
+            "impactOnMoji": "对墨迹天气的影响：建议密切关注用户反馈和市场反应",
+            "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
+        },
         {
             "id": 1789520952943,
             "title": "AccuWeather达成战略合作",
@@ -64,20 +106,6 @@ const MOCK_DATA = {
             "aiAnalysis": "Weather & Radar此举将进一步强化其市场竞争力",
             "impactOnMoji": "对墨迹天气的影响：可以作为产品规划的参考，考虑类似功能",
             "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
-        },
-        {
-            "id": 1789519786292,
-            "title": "Weather & Radar优化算法",
-            "company": "Weather & Radar",
-            "field": "ToC",
-            "date": "2026-09-16",
-            "type": "技术",
-            "rating": "A",
-            "summary": "Weather & Radar宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
-            "source": "https://weather&radar.com/news",
-            "aiAnalysis": "Weather & Radar此举体现了在技术创新方面的持续投入",
-            "impactOnMoji": "对墨迹天气的影响：可以作为产品规划的参考，考虑类似功能",
-            "ratingReason": "重要功能更新，具有较强参考价值"
         },
         {
             "id": 1789463033353,
