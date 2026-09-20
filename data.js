@@ -2,13 +2,55 @@
 
 const MOCK_DATA = {
     "stats": {
-        "weeklyIntel": 14,
-        "keyIntel": 17,
+        "weeklyIntel": 16,
+        "keyIntel": 18,
         "companies": 19,
         "trends": 8
     },
     "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。The Weather Channel等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
     "tocIntelligence": [
+        {
+            "id": 1789866530910,
+            "title": "The Weather Channel拓展新市场",
+            "company": "The Weather Channel",
+            "field": "ToC",
+            "date": "2026-09-20",
+            "type": "商业",
+            "rating": "A",
+            "summary": "The Weather Channel宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://theweatherchannel.com/news",
+            "aiAnalysis": "The Weather Channel此举将进一步强化其市场竞争力",
+            "impactOnMoji": "对墨迹天气的影响：值得评估对自身产品策略的启示",
+            "ratingReason": "重要功能更新，具有较强参考价值"
+        },
+        {
+            "id": 1789866530911,
+            "title": "The Weather Channel集成大语言模型",
+            "company": "The Weather Channel",
+            "field": "ToC",
+            "date": "2026-09-20",
+            "type": "AI",
+            "rating": "B",
+            "summary": "The Weather Channel宣布推出基于AI的新功能，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://theweatherchannel.com/news",
+            "aiAnalysis": "The Weather Channel此举有助于提升用户粘性和市场份额",
+            "impactOnMoji": "对墨迹天气的影响：需要关注竞品的技术进展，评估是否跟进",
+            "ratingReason": "常规功能更新，行业普遍趋势"
+        },
+        {
+            "id": 1789866530912,
+            "title": "Weather & Radar拓展新市场",
+            "company": "Weather & Radar",
+            "field": "ToC",
+            "date": "2026-09-20",
+            "type": "商业",
+            "rating": "S",
+            "summary": "Weather & Radar宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://weather&radar.com/news",
+            "aiAnalysis": "Weather & Radar此举将进一步强化其市场竞争力",
+            "impactOnMoji": "对墨迹天气的影响：值得评估对自身产品策略的启示",
+            "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
+        },
         {
             "id": 1789780106241,
             "title": "The Weather Channel发布财报",
@@ -134,20 +176,6 @@ const MOCK_DATA = {
             "aiAnalysis": "AccuWeather此举体现了在技术创新方面的持续投入",
             "impactOnMoji": "对墨迹天气的影响：值得评估对自身产品策略的启示",
             "ratingReason": "常规功能更新，行业普遍趋势"
-        },
-        {
-            "id": 1789520952944,
-            "title": "The Weather Channel拓展新市场",
-            "company": "The Weather Channel",
-            "field": "ToC",
-            "date": "2026-09-16",
-            "type": "商业",
-            "rating": "S",
-            "summary": "The Weather Channel宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
-            "source": "https://theweatherchannel.com/news",
-            "aiAnalysis": "The Weather Channel此举反映了行业向智能化方向发展的趋势",
-            "impactOnMoji": "对墨迹天气的影响：可以作为产品规划的参考，考虑类似功能",
-            "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
         },
         {
             "id": 1789520952945,
