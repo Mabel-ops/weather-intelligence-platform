@@ -3,12 +3,54 @@
 const MOCK_DATA = {
     "stats": {
         "weeklyIntel": 18,
-        "keyIntel": 22,
+        "keyIntel": 24,
         "companies": 19,
         "trends": 8
     },
-    "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。The Weather Channel等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
+    "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。AccuWeather等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
     "tocIntelligence": [
+        {
+            "id": 1790212160506,
+            "title": "AccuWeather升级预测模型",
+            "company": "AccuWeather",
+            "field": "ToC",
+            "date": "2026-09-24",
+            "type": "技术",
+            "rating": "A",
+            "summary": "AccuWeather宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://accuweather.com/news",
+            "aiAnalysis": "AccuWeather此举有助于提升用户粘性和市场份额",
+            "impactOnMoji": "对墨迹天气的影响：需要关注竞品的技术进展，评估是否跟进",
+            "ratingReason": "重要功能更新，具有较强参考价值"
+        },
+        {
+            "id": 1790212160507,
+            "title": "Weather & Radar优化用户体验",
+            "company": "Weather & Radar",
+            "field": "ToC",
+            "date": "2026-09-24",
+            "type": "产品",
+            "rating": "B",
+            "summary": "Weather & Radar宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://weather&radar.com/news",
+            "aiAnalysis": "Weather & Radar此举将进一步强化其市场竞争力",
+            "impactOnMoji": "对墨迹天气的影响：建议密切关注用户反馈和市场反应",
+            "ratingReason": "常规功能更新，行业普遍趋势"
+        },
+        {
+            "id": 1790212160509,
+            "title": "AccuWeather优化算法",
+            "company": "AccuWeather",
+            "field": "ToC",
+            "date": "2026-09-24",
+            "type": "技术",
+            "rating": "A",
+            "summary": "AccuWeather宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://accuweather.com/news",
+            "aiAnalysis": "AccuWeather此举将进一步强化其市场竞争力",
+            "impactOnMoji": "对墨迹天气的影响：建议密切关注用户反馈和市场反应",
+            "ratingReason": "重要功能更新，具有较强参考价值"
+        },
         {
             "id": 1790125762770,
             "title": "The Weather Channel发布新版本",
