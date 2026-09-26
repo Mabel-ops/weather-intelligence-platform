@@ -3,12 +3,40 @@
 const MOCK_DATA = {
     "stats": {
         "weeklyIntel": 17,
-        "keyIntel": 26,
+        "keyIntel": 27,
         "companies": 19,
         "trends": 8
     },
-    "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。Windy.com等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
+    "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。AccuWeather等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
     "tocIntelligence": [
+        {
+            "id": 1790384909542,
+            "title": "AccuWeather发布新版本",
+            "company": "AccuWeather",
+            "field": "ToC",
+            "date": "2026-09-26",
+            "type": "产品",
+            "rating": "A",
+            "summary": "AccuWeather宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://accuweather.com/news",
+            "aiAnalysis": "AccuWeather此举体现了在技术创新方面的持续投入",
+            "impactOnMoji": "对墨迹天气的影响：建议密切关注用户反馈和市场反应",
+            "ratingReason": "重要功能更新，具有较强参考价值"
+        },
+        {
+            "id": 1790384909544,
+            "title": "彩云天气改进数据源",
+            "company": "彩云天气",
+            "field": "ToC",
+            "date": "2026-09-26",
+            "type": "技术",
+            "rating": "B",
+            "summary": "彩云天气宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://彩云天气.com/news",
+            "aiAnalysis": "彩云天气此举将进一步强化其市场竞争力",
+            "impactOnMoji": "对墨迹天气的影响：建议密切关注用户反馈和市场反应",
+            "ratingReason": "常规功能更新，行业普遍趋势"
+        },
         {
             "id": 1790298562321,
             "title": "Windy.com发布财报",
