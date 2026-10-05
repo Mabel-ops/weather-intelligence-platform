@@ -7,8 +7,50 @@ const MOCK_DATA = {
         "companies": 19,
         "trends": 8
     },
-    "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。AccuWeather等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
+    "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。Weather & Radar等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
     "tocIntelligence": [
+        {
+            "id": 1791162682566,
+            "title": "Weather & Radar改进数据源",
+            "company": "Weather & Radar",
+            "field": "ToC",
+            "date": "2026-10-05",
+            "type": "技术",
+            "rating": "B",
+            "summary": "Weather & Radar宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://weather&radar.com/news",
+            "aiAnalysis": "Weather & Radar此举体现了在技术创新方面的持续投入",
+            "impactOnMoji": "对墨迹天气的影响：可以作为产品规划的参考，考虑类似功能",
+            "ratingReason": "常规功能更新，行业普遍趋势"
+        },
+        {
+            "id": 1791162682567,
+            "title": "彩云天气升级预测模型",
+            "company": "彩云天气",
+            "field": "ToC",
+            "date": "2026-10-05",
+            "type": "技术",
+            "rating": "B",
+            "summary": "彩云天气宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://彩云天气.com/news",
+            "aiAnalysis": "彩云天气此举反映了行业向智能化方向发展的趋势",
+            "impactOnMoji": "对墨迹天气的影响：需要关注竞品的技术进展，评估是否跟进",
+            "ratingReason": "常规功能更新，行业普遍趋势"
+        },
+        {
+            "id": 1791162682568,
+            "title": "Weather & Radar集成大语言模型",
+            "company": "Weather & Radar",
+            "field": "ToC",
+            "date": "2026-10-05",
+            "type": "AI",
+            "rating": "S",
+            "summary": "Weather & Radar宣布推出基于AI的新功能，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://weather&radar.com/news",
+            "aiAnalysis": "Weather & Radar此举将进一步强化其市场竞争力",
+            "impactOnMoji": "对墨迹天气的影响：需要关注竞品的技术进展，评估是否跟进",
+            "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
+        },
         {
             "id": 1791086414293,
             "title": "AccuWeather获得新融资",
@@ -402,20 +444,6 @@ const MOCK_DATA = {
             "ratingReason": "常规功能更新，行业普遍趋势"
         },
         {
-            "id": 1790039298209,
-            "title": "Weather & Radar集成大语言模型",
-            "company": "Weather & Radar",
-            "field": "ToC",
-            "date": "2026-09-22",
-            "type": "AI",
-            "rating": "B",
-            "summary": "Weather & Radar宣布推出基于AI的新功能，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
-            "source": "https://weather&radar.com/news",
-            "aiAnalysis": "Weather & Radar此举将进一步强化其市场竞争力",
-            "impactOnMoji": "对墨迹天气的影响：需要关注竞品的技术进展，评估是否跟进",
-            "ratingReason": "常规功能更新，行业普遍趋势"
-        },
-        {
             "id": 1790039298210,
             "title": "The Weather Channel集成大语言模型",
             "company": "The Weather Channel",
@@ -680,34 +708,6 @@ const MOCK_DATA = {
             "aiAnalysis": "Weathernews在亚太地区台风预测领域积累深厚，其专业化和本地化策略值得关注。针对台风等高关注天气场景的深度优化能够建立竞争壁垒。",
             "impactOnMoji": "对墨迹天气的影响：台风预测是中国沿海地区用户的核心需求，Weathernews的技术优势显示专业化方向的价值。墨迹可考虑在台风、暴雨等灾害性天气预报上加大投入。",
             "ratingReason": "日本头部竞品产品更新，台风预测技术领先"
-        },
-        {
-            "id": 7,
-            "title": "Weather & Radar德国版完成重大更新，用户体验全面升级",
-            "company": "Weather & Radar",
-            "field": "ToC",
-            "date": "2026-08-28",
-            "type": "产品",
-            "rating": "A",
-            "summary": "德国天气应用Weather & Radar（App ID: 545993260）发布v2.48版本，升级多普勒雷达显示效果，支持自定义雷达图层。新版本优化了极端天气推送逻辑，用户可精细化设置预警阈值。",
-            "source": "https://weatherradar.de/news",
-            "aiAnalysis": "Weather & Radar通过持续强化雷达可视化建立差异化优势，自定义图层功能满足专业用户需求。其在欧洲市场的成功显示专业工具型产品的市场空间。",
-            "impactOnMoji": "对墨迹天气的影响：雷达可视化是专业用户和极端天气场景的重要功能。墨迹需要评估雷达地图的产品优先级，以及如何在大众化定位下提供专业功能。",
-            "ratingReason": "欧洲主流竞品重大更新，雷达技术有特色"
-        },
-        {
-            "id": 8,
-            "title": "天气通优化UI设计，新增语音播报功能",
-            "company": "天气通",
-            "field": "ToC",
-            "date": "2026-08-25",
-            "type": "产品",
-            "rating": "B",
-            "summary": "天气通发布v8.05版本，优化首页布局采用更简洁的卡片式设计，新增语音播报功能支持方言播报。新版本还支持15天趋势预报，并修复了部分机型的闪退问题。",
-            "source": "https://www.weather.com.cn/app",
-            "aiAnalysis": "天气通在UI简化和适老化功能上有所探索。语音播报支持方言是针对中老年用户的差异化功能，显示对不同用户群体需求的关注。",
-            "impactOnMoji": "对墨迹天气的影响：天气通在UI简化和适老化方面的尝试值得参考。墨迹可考虑针对不同年龄段用户推出差异化功能，如简化版或长辈模式。",
-            "ratingReason": "国内竞品常规更新，适老化功能有特色"
         }
     ],
     "tocAppUpdates": [
