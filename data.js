@@ -2,13 +2,41 @@
 
 const MOCK_DATA = {
     "stats": {
-        "weeklyIntel": 18,
-        "keyIntel": 36,
+        "weeklyIntel": 17,
+        "keyIntel": 35,
         "companies": 19,
         "trends": 8
     },
     "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。Weathernews等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
     "tocIntelligence": [
+        {
+            "id": 1791335550835,
+            "title": "Weathernews集成大语言模型",
+            "company": "Weathernews",
+            "field": "ToC",
+            "date": "2026-10-07",
+            "type": "AI",
+            "rating": "S",
+            "summary": "Weathernews宣布推出基于AI的新功能，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://weathernews.com/news",
+            "aiAnalysis": "Weathernews此举反映了行业向智能化方向发展的趋势",
+            "impactOnMoji": "对墨迹天气的影响：可以作为产品规划的参考，考虑类似功能",
+            "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
+        },
+        {
+            "id": 1791335550836,
+            "title": "彩云天气推出AI驱动的新功能",
+            "company": "彩云天气",
+            "field": "ToC",
+            "date": "2026-10-07",
+            "type": "AI",
+            "rating": "B",
+            "summary": "彩云天气宣布推出基于AI的新功能，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://彩云天气.com/news",
+            "aiAnalysis": "彩云天气此举将进一步强化其市场竞争力",
+            "impactOnMoji": "对墨迹天气的影响：需要关注竞品的技术进展，评估是否跟进",
+            "ratingReason": "常规功能更新，行业普遍趋势"
+        },
         {
             "id": 1791249060421,
             "title": "Weathernews优化用户体验",
@@ -288,20 +316,6 @@ const MOCK_DATA = {
             "aiAnalysis": "The Weather Channel此举将进一步强化其市场竞争力",
             "impactOnMoji": "对墨迹天气的影响：可以作为产品规划的参考，考虑类似功能",
             "ratingReason": "常规功能更新，行业普遍趋势"
-        },
-        {
-            "id": 1790557795512,
-            "title": "彩云天气推出AI驱动的新功能",
-            "company": "彩云天气",
-            "field": "ToC",
-            "date": "2026-09-28",
-            "type": "AI",
-            "rating": "S",
-            "summary": "彩云天气宣布推出基于AI的新功能，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
-            "source": "https://彩云天气.com/news",
-            "aiAnalysis": "彩云天气此举将进一步强化其市场竞争力",
-            "impactOnMoji": "对墨迹天气的影响：需要关注竞品的技术进展，评估是否跟进",
-            "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
         },
         {
             "id": 1790557795513,
@@ -694,20 +708,6 @@ const MOCK_DATA = {
             "aiAnalysis": "闪电追踪是雷达地图的常规功能扩展，技术壁垒不高，但对关注极端天气的用户有一定价值。",
             "impactOnMoji": "对墨迹天气的影响：功能性补充，可根据用户需求评估是否引入。",
             "ratingReason": "常规功能更新，行业普遍趋势"
-        },
-        {
-            "id": 6,
-            "title": "Weathernews强化台风路径预测精度，新版本上线",
-            "company": "Weathernews",
-            "field": "ToC",
-            "date": "2026-08-30",
-            "type": "产品",
-            "rating": "A",
-            "summary": "日本气象服务商Weathernews发布最新版本，强化台风路径预测功能。结合日本气象厅数据和自有AI模型，台风路径预测准确率达行业领先水平。新版本还优化了海洋天气服务和降雪预报可视化。",
-            "source": "https://weathernews.jp/news",
-            "aiAnalysis": "Weathernews在亚太地区台风预测领域积累深厚，其专业化和本地化策略值得关注。针对台风等高关注天气场景的深度优化能够建立竞争壁垒。",
-            "impactOnMoji": "对墨迹天气的影响：台风预测是中国沿海地区用户的核心需求，Weathernews的技术优势显示专业化方向的价值。墨迹可考虑在台风、暴雨等灾害性天气预报上加大投入。",
-            "ratingReason": "日本头部竞品产品更新，台风预测技术领先"
         }
     ],
     "tocAppUpdates": [
