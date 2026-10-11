@@ -2,13 +2,55 @@
 
 const MOCK_DATA = {
     "stats": {
-        "weeklyIntel": 17,
+        "weeklyIntel": 15,
         "keyIntel": 33,
         "companies": 19,
         "trends": 8
     },
     "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。Windy.com等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
     "tocIntelligence": [
+        {
+            "id": 1791701287908,
+            "title": "Windy.com发布新版本",
+            "company": "Windy.com",
+            "field": "ToC",
+            "date": "2026-10-11",
+            "type": "产品",
+            "rating": "B",
+            "summary": "Windy.com宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://windy.com.com/news",
+            "aiAnalysis": "Windy.com此举反映了行业向智能化方向发展的趋势",
+            "impactOnMoji": "对墨迹天气的影响：需要关注竞品的技术进展，评估是否跟进",
+            "ratingReason": "常规功能更新，行业普遍趋势"
+        },
+        {
+            "id": 1791701287909,
+            "title": "Weather & Radar升级预测模型",
+            "company": "Weather & Radar",
+            "field": "ToC",
+            "date": "2026-10-11",
+            "type": "技术",
+            "rating": "B",
+            "summary": "Weather & Radar宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://weather&radar.com/news",
+            "aiAnalysis": "Weather & Radar此举反映了行业向智能化方向发展的趋势",
+            "impactOnMoji": "对墨迹天气的影响：值得评估对自身产品策略的启示",
+            "ratingReason": "常规功能更新，行业普遍趋势"
+        },
+        {
+            "id": 1791701287910,
+            "title": "彩云天气推出AI驱动的新功能",
+            "company": "彩云天气",
+            "field": "ToC",
+            "date": "2026-10-11",
+            "type": "AI",
+            "rating": "A",
+            "summary": "彩云天气宣布推出基于AI的新功能，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://彩云天气.com/news",
+            "aiAnalysis": "彩云天气此举体现了在技术创新方面的持续投入",
+            "impactOnMoji": "对墨迹天气的影响：需要关注竞品的技术进展，评估是否跟进",
+            "ratingReason": "重要功能更新，具有较强参考价值"
+        },
         {
             "id": 1791614476720,
             "title": "Windy.com集成大语言模型",
@@ -24,20 +66,6 @@ const MOCK_DATA = {
             "ratingReason": "常规功能更新，行业普遍趋势"
         },
         {
-            "id": 1791614476722,
-            "title": "Windy.com发布新版本",
-            "company": "Windy.com",
-            "field": "ToC",
-            "date": "2026-10-10",
-            "type": "产品",
-            "rating": "B",
-            "summary": "Windy.com宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
-            "source": "https://windy.com.com/news",
-            "aiAnalysis": "Windy.com此举反映了行业向智能化方向发展的趋势",
-            "impactOnMoji": "对墨迹天气的影响：可以作为产品规划的参考，考虑类似功能",
-            "ratingReason": "常规功能更新，行业普遍趋势"
-        },
-        {
             "id": 1791508485205,
             "title": "Weathernews优化算法",
             "company": "Weathernews",
@@ -50,20 +78,6 @@ const MOCK_DATA = {
             "aiAnalysis": "Weathernews此举反映了行业向智能化方向发展的趋势",
             "impactOnMoji": "对墨迹天气的影响：可以作为产品规划的参考，考虑类似功能",
             "ratingReason": "常规功能更新，行业普遍趋势"
-        },
-        {
-            "id": 1791508485206,
-            "title": "Weather & Radar升级预测模型",
-            "company": "Weather & Radar",
-            "field": "ToC",
-            "date": "2026-10-09",
-            "type": "技术",
-            "rating": "A",
-            "summary": "Weather & Radar宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
-            "source": "https://weather&radar.com/news",
-            "aiAnalysis": "Weather & Radar此举将进一步强化其市场竞争力",
-            "impactOnMoji": "对墨迹天气的影响：建议密切关注用户反馈和市场反应",
-            "ratingReason": "重要功能更新，具有较强参考价值"
         },
         {
             "id": 1791508485207,
@@ -134,20 +148,6 @@ const MOCK_DATA = {
             "aiAnalysis": "Weathernews此举反映了行业向智能化方向发展的趋势",
             "impactOnMoji": "对墨迹天气的影响：可以作为产品规划的参考，考虑类似功能",
             "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
-        },
-        {
-            "id": 1791335550836,
-            "title": "彩云天气推出AI驱动的新功能",
-            "company": "彩云天气",
-            "field": "ToC",
-            "date": "2026-10-07",
-            "type": "AI",
-            "rating": "B",
-            "summary": "彩云天气宣布推出基于AI的新功能，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
-            "source": "https://彩云天气.com/news",
-            "aiAnalysis": "彩云天气此举将进一步强化其市场竞争力",
-            "impactOnMoji": "对墨迹天气的影响：需要关注竞品的技术进展，评估是否跟进",
-            "ratingReason": "常规功能更新，行业普遍趋势"
         },
         {
             "id": 1791249060421,
