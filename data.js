@@ -2,13 +2,55 @@
 
 const MOCK_DATA = {
     "stats": {
-        "weeklyIntel": 15,
+        "weeklyIntel": 16,
         "keyIntel": 33,
         "companies": 19,
         "trends": 8
     },
-    "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。Windy.com等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
+    "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。Weather & Radar等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
     "tocIntelligence": [
+        {
+            "id": 1791788301788,
+            "title": "Weather & Radar改进数据源",
+            "company": "Weather & Radar",
+            "field": "ToC",
+            "date": "2026-10-12",
+            "type": "技术",
+            "rating": "A",
+            "summary": "Weather & Radar宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://weather&radar.com/news",
+            "aiAnalysis": "Weather & Radar此举体现了在技术创新方面的持续投入",
+            "impactOnMoji": "对墨迹天气的影响：需要关注竞品的技术进展，评估是否跟进",
+            "ratingReason": "重要功能更新，具有较强参考价值"
+        },
+        {
+            "id": 1791788301790,
+            "title": "彩云天气强化AI预测能力",
+            "company": "彩云天气",
+            "field": "ToC",
+            "date": "2026-10-12",
+            "type": "AI",
+            "rating": "A",
+            "summary": "彩云天气宣布推出基于AI的新功能，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://彩云天气.com/news",
+            "aiAnalysis": "彩云天气此举反映了行业向智能化方向发展的趋势",
+            "impactOnMoji": "对墨迹天气的影响：可以作为产品规划的参考，考虑类似功能",
+            "ratingReason": "重要功能更新，具有较强参考价值"
+        },
+        {
+            "id": 1791788301791,
+            "title": "Weather & Radar发布财报",
+            "company": "Weather & Radar",
+            "field": "ToC",
+            "date": "2026-10-12",
+            "type": "商业",
+            "rating": "B",
+            "summary": "Weather & Radar宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
+            "source": "https://weather&radar.com/news",
+            "aiAnalysis": "Weather & Radar此举体现了在技术创新方面的持续投入",
+            "impactOnMoji": "对墨迹天气的影响：建议密切关注用户反馈和市场反应",
+            "ratingReason": "常规功能更新，行业普遍趋势"
+        },
         {
             "id": 1791701287908,
             "title": "Windy.com发布新版本",
@@ -190,20 +232,6 @@ const MOCK_DATA = {
             "aiAnalysis": "AccuWeather此举将进一步强化其市场竞争力",
             "impactOnMoji": "对墨迹天气的影响：建议密切关注用户反馈和市场反应",
             "ratingReason": "重要功能更新，具有较强参考价值"
-        },
-        {
-            "id": 1791162682566,
-            "title": "Weather & Radar改进数据源",
-            "company": "Weather & Radar",
-            "field": "ToC",
-            "date": "2026-10-05",
-            "type": "技术",
-            "rating": "B",
-            "summary": "Weather & Radar宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
-            "source": "https://weather&radar.com/news",
-            "aiAnalysis": "Weather & Radar此举体现了在技术创新方面的持续投入",
-            "impactOnMoji": "对墨迹天气的影响：可以作为产品规划的参考，考虑类似功能",
-            "ratingReason": "常规功能更新，行业普遍趋势"
         },
         {
             "id": 1791162682567,
@@ -428,20 +456,6 @@ const MOCK_DATA = {
             "aiAnalysis": "AccuWeather此举反映了行业向智能化方向发展的趋势",
             "impactOnMoji": "对墨迹天气的影响：值得评估对自身产品策略的启示",
             "ratingReason": "常规功能更新，行业普遍趋势"
-        },
-        {
-            "id": 1790471358424,
-            "title": "彩云天气强化AI预测能力",
-            "company": "彩云天气",
-            "field": "ToC",
-            "date": "2026-09-27",
-            "type": "AI",
-            "rating": "S",
-            "summary": "彩云天气宣布推出基于AI的新功能，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
-            "source": "https://彩云天气.com/news",
-            "aiAnalysis": "彩云天气此举反映了行业向智能化方向发展的趋势",
-            "impactOnMoji": "对墨迹天气的影响：值得评估对自身产品策略的启示",
-            "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
         },
         {
             "id": 1790384909542,
@@ -694,20 +708,6 @@ const MOCK_DATA = {
             "aiAnalysis": "这是AccuWeather在AI气象预测领域的重大突破，将AI能力从辅助分析提升到核心预警链路。72小时提前量和40%准确率提升具有明显竞争优势。",
             "impactOnMoji": "对墨迹天气的影响：竞品在AI预警能力上形成领先优势，墨迹需要评估自身AI预警能力的差距，考虑是否加大AI气象预测投入。",
             "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
-        },
-        {
-            "id": 2,
-            "title": "The Weather Channel集成ChatGPT提供对话式天气查询",
-            "company": "The Weather Channel",
-            "field": "ToC",
-            "date": "2026-09-04",
-            "type": "AI",
-            "rating": "A",
-            "summary": "The Weather Channel在iOS和Android应用中集成OpenAI ChatGPT，用户可通过自然语言对话获取天气信息、出行建议和穿衣指南。功能支持30+语言，已在全球市场上线。",
-            "source": "https://weather.com/news",
-            "aiAnalysis": "生成式AI正在成为天气APP的标配功能，从单向信息展示向双向对话交互演进。The Weather Channel此举进一步强化了其在AI应用方面的领先地位。",
-            "impactOnMoji": "对墨迹天气的影响：竞品通过对话式交互提升用户体验，墨迹需要评估是否引入类似能力，以及如何在中文场景下提供更优质的对话体验。",
-            "ratingReason": "重要AI功能上线，提升用户交互体验，具有较强参考价值"
         }
     ],
     "tocAppUpdates": [
