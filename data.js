@@ -1,5 +1,5 @@
 // 气象行业情报监测平台 - 数据文件
-// 最后更新: 2026/10/13 09:30:27
+// 最后更新: 2026/10/13 02:14:04
 
 const MOCK_DATA = {
     "stats": {
@@ -11,7 +11,7 @@ const MOCK_DATA = {
     "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。AccuWeather等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
     "tocIntelligence": [
         {
-            "id": 1791855028568.053,
+            "id": 1791857645169.7493,
             "title": "NASA’s Roman Space Telescope set to launch Sunday ",
             "company": "AccuWeather",
             "field": "ToC",
@@ -25,7 +25,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791855028818.5422,
+            "id": 1791857645880.3816,
             "title": "A windy corner of New Mexico becomes a launchpad f",
             "company": "气象公司",
             "field": "ToC",
@@ -39,7 +39,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791855028085.7783,
+            "id": 1791857645134.8982,
             "title": "Tomorrow.io adds $35 million to DeepSky funding ro",
             "company": "Tomorrow.io",
             "field": "ToC",
@@ -53,7 +53,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791855028812.216,
+            "id": 1791857644976.484,
             "title": "Kings of Leon Forge ‘Unlikely Partnership’ with We",
             "company": "Weather Channel",
             "field": "ToC",
@@ -67,7 +67,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791855028110.5532,
+            "id": 1791857645887.1418,
             "title": "AccuWeather and Disney Experiences Launch Disney W",
             "company": "AccuWeather",
             "field": "ToC",
