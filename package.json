@@ -1,0 +1,23 @@
+{
+  "name": "weather-intelligence-platform",
+  "version": "1.0.0",
+  "description": "气象行业情报监测平台 - 自动抓取和AI分析",
+  "main": "update-daily.js",
+  "scripts": {
+    "update": "node update-daily.js",
+    "test": "node update-daily.js"
+  },
+  "keywords": [
+    "weather",
+    "intelligence",
+    "ai",
+    "monitoring"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0"
+  }
+}

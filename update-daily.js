@@ -3,16 +3,65 @@
 /**
  * 气象行业情报监测平台 - 每日数据更新脚本
  *
- * 功能：使用 Claude API 生成每日气象行业情报数据
+ * 功能：
+ * 1. 从多个可靠数据源抓取气象公司的最新动态
+ * 2. 使用 Claude API 进行智能分析
+ * 3. 生成结构化的情报数据
  */
 
 const fs = require('fs');
 const path = require('path');
+const Anthropic = require('@anthropic-ai/sdk');
+const axios = require('axios');
+const cheerio = require('cheerio');
+
+// 监测的公司和数据源
+const NEWS_SOURCES = [
+    // 科技新闻 - 商业和产品动态
+    {
+        type: 'google_rss',
+        name: 'Weather Company News',
+        url: 'https://news.google.com/rss/search?q=(AccuWeather+OR+"Weather+Channel"+OR+Windy+OR+Tomorrow.io)+(launch+OR+feature+OR+partnership+OR+funding+OR+acquisition)&hl=en-US&gl=US&ceid=US:en',
+        keywords: []
+    },
+    {
+        type: 'google_rss',
+        name: 'Weather Tech & Business',
+        url: 'https://news.google.com/rss/search?q="weather+app"+(AI+OR+technology+OR+acquisition+OR+funding+OR+release)+-forecast+-tomorrow+-today&hl=en-US&gl=US&ceid=US:en',
+        keywords: []
+    },
+    // 中文新闻
+    {
+        type: 'google_rss',
+        name: '气象科技新闻',
+        url: 'https://news.google.com/rss/search?q=(彩云天气+OR+墨迹天气+OR+天气通)+(发布+OR+融资+OR+合作+OR+功能)&hl=zh-CN&gl=CN&ceid=CN:zh-Hans',
+        keywords: []
+    },
+    // TechCrunch (过滤更严格)
+    {
+        type: 'rss',
+        name: 'TechCrunch',
+        url: 'https://techcrunch.com/feed/',
+        keywords: ['AccuWeather', 'weather app', 'weather company', 'Windy', 'Tomorrow.io', 'ClimaCell']
+    }
+];
+
+// 重点监测公司
+const TARGET_COMPANIES = [
+    'AccuWeather', 'Weather Channel', 'Weather Company', 'Windy', 'Weathernews',
+    'WNI', 'Clime', 'Tomorrow.io', 'ClimaCell', 'Weather Underground', 'WeatherBug',
+    '彩云天气', 'ColorfulClouds', '中国天气', '知天气', '天气通', '最美天气', '2345天气'
+];
 
 class WeatherIntelUpdater {
     constructor() {
         this.dataPath = path.join(__dirname, 'data.js');
         this.today = new Date().toISOString().split('T')[0];
+        this.apiKey = process.env.ANTHROPIC_API_KEY;
+
+        if (this.apiKey) {
+            this.anthropic = new Anthropic({ apiKey: this.apiKey });
+        }
     }
 
     /**
@@ -27,8 +76,22 @@ class WeatherIntelUpdater {
             // 读取现有数据
             const currentData = this.loadCurrentData();
 
-            // 生成新的情报数据
-            const newIntel = await this.generateNewIntel();
+            // 抓取新闻数据
+            const newsItems = await this.fetchNews();
+            console.log(`✓ 抓取到 ${newsItems.length} 条相关新闻`);
+
+            if (newsItems.length === 0) {
+                console.log('⚠️ 未抓取到新闻，使用模拟数据');
+                const mockIntel = this.generateMockIntel();
+                const updatedData = this.mergeData(currentData, mockIntel);
+                this.saveData(updatedData);
+                console.log('✓ 数据更新完成（模拟数据）');
+                return;
+            }
+
+            // 使用 Claude AI 分析
+            const newIntel = await this.analyzeWithClaude(newsItems);
+            console.log(`✓ AI 分析完成，生成 ${newIntel.length} 条情报`);
 
             // 更新数据
             const updatedData = this.mergeData(currentData, newIntel);
@@ -37,12 +100,394 @@ class WeatherIntelUpdater {
             this.saveData(updatedData);
 
             console.log('✓ 数据更新完成');
-            console.log(`✓ 新增情报 ${newIntel.tocIntelligence.length} 条`);
+            console.log(`✓ 新增情报 ${newIntel.length} 条`);
 
         } catch (error) {
-            console.error('✗ 更新失败:', error);
+            console.error('✗ 更新失败:', error.message);
+            console.error(error);
             process.exit(1);
         }
+    }
+
+    /**
+     * 抓取新闻数据
+     */
+    async fetchNews() {
+        console.log('→ 开始抓取新闻数据...');
+        const allNews = [];
+
+        for (const source of NEWS_SOURCES) {
+            try {
+                let news = [];
+
+                if (source.type === 'rss' || source.type === 'google_rss') {
+                    news = await this.fetchRSS(source);
+                }
+
+                allNews.push(...news);
+                console.log(`  ✓ ${source.name}: ${news.length} 条`);
+
+                // 避免请求过快
+                await this.sleep(500);
+            } catch (error) {
+                console.error(`  ✗ ${source.name} 抓取失败:`, error.message);
+            }
+        }
+
+        // 过滤相关新闻
+        const relevantNews = this.filterRelevantNews(allNews);
+
+        // 去重
+        const uniqueNews = this.deduplicateNews(relevantNews);
+
+        return uniqueNews.slice(0, 20);
+    }
+
+    /**
+     * 抓取 RSS 源
+     */
+    async fetchRSS(source) {
+        const news = [];
+
+        try {
+            const response = await axios.get(source.url, {
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
+                },
+                timeout: 15000
+            });
+
+            const $ = cheerio.load(response.data, { xmlMode: true });
+
+            $('item').each((i, elem) => {
+                if (i >= 10) return false; // 每个源最多10条
+
+                const $item = $(elem);
+                const title = $item.find('title').text().trim();
+                const link = $item.find('link').text().trim();
+                const description = $item.find('description').text().trim();
+                const pubDate = $item.find('pubDate').text().trim();
+
+                if (title) {
+                    // 检查是否相关
+                    const isRelevant = source.keywords.length === 0 ||
+                        source.keywords.some(kw =>
+                            title.toLowerCase().includes(kw.toLowerCase()) ||
+                            description.toLowerCase().includes(kw.toLowerCase())
+                        );
+
+                    if (isRelevant) {
+                        news.push({
+                            title,
+                            snippet: this.cleanHTML(description),
+                            source: link,
+                            date: this.parseDate(pubDate),
+                            rawText: title + ' ' + description
+                        });
+                    }
+                }
+            });
+        } catch (error) {
+            throw new Error(`RSS fetch failed: ${error.message}`);
+        }
+
+        return news;
+    }
+
+    /**
+     * 过滤相关新闻
+     */
+    filterRelevantNews(newsItems) {
+        return newsItems.filter(item => {
+            const text = (item.title + ' ' + item.snippet).toLowerCase();
+
+            // 必须包含目标公司
+            const hasCompany = TARGET_COMPANIES.some(company =>
+                text.includes(company.toLowerCase())
+            );
+
+            if (!hasCompany) return false;
+
+            // 排除天气预报类新闻（更严格）
+            const forecastKeywords = [
+                'forecast', 'hurricane', 'storm', 'rain', 'snow', 'temperature',
+                'degrees', 'celsius', 'fahrenheit', 'weather today', 'weather tomorrow',
+                'cold front', 'warm front', 'high pressure', 'low pressure',
+                '飓风', '暴风', '降雨', '降温', '天气预报', '今日天气', '明日天气'
+            ];
+
+            const isForecastNews = forecastKeywords.some(kw => text.includes(kw));
+
+            // 必须包含商业/产品关键词
+            const businessKeywords = [
+                'launch', 'release', 'funding', 'acquisition', 'partnership', 'feature',
+                'ai', 'app', 'update', 'version', 'technology', 'innovation',
+                '发布', '融资', '收购', '合作', '功能', '更新', '版本', '技术', '创新'
+            ];
+
+            const hasBusinessKeyword = businessKeywords.some(kw => text.includes(kw));
+
+            return !isForecastNews && hasBusinessKeyword;
+        });
+    }
+
+    /**
+     * 使用 Claude AI 分析新闻
+     */
+    async analyzeWithClaude(newsItems) {
+        if (!this.anthropic) {
+            console.log('  未检测到 ANTHROPIC_API_KEY，使用简化分析');
+            return this.fallbackAnalysis(newsItems);
+        }
+
+        console.log('→ 调用 Claude API 分析新闻...');
+
+        const prompt = this.buildAnalysisPrompt(newsItems);
+
+        try {
+            const message = await this.anthropic.messages.create({
+                model: 'claude-sonnet-4-20250514',
+                max_tokens: 4096,
+                messages: [{
+                    role: 'user',
+                    content: prompt
+                }]
+            });
+
+            const responseText = message.content[0].text;
+
+            // 解析 JSON 响应
+            const jsonMatch = responseText.match(/\{[\s\S]*\}/);
+            if (jsonMatch) {
+                const result = JSON.parse(jsonMatch[0]);
+                return result.intelligence || [];
+            }
+
+            console.warn('  ⚠ Claude 响应格式不正确，使用简化分析');
+            return this.fallbackAnalysis(newsItems);
+
+        } catch (error) {
+            console.error('  ✗ Claude API 调用失败:', error.message);
+            return this.fallbackAnalysis(newsItems);
+        }
+    }
+
+    /**
+     * 构建 Claude 分析 Prompt
+     */
+    buildAnalysisPrompt(newsItems) {
+        const newsText = newsItems.map((item, i) =>
+            `${i + 1}. ${item.title}\n   ${item.snippet}\n   来源: ${item.source}`
+        ).join('\n\n');
+
+        return `你是气象行业情报分析专家。请分析以下气象公司的最新新闻，筛选出有价值的情报。
+
+今天日期：${this.today}
+
+监测公司：AccuWeather, The Weather Channel, Windy, Weathernews, Tomorrow.io, 彩云天气等气象服务企业
+
+新闻列表：
+${newsText}
+
+任务要求：
+1. 从以上新闻中筛选出 3-5 条最有价值的情报
+2. 评估每条情报的重要性（S=重大/A=重要/B=一般）
+3. 分析对墨迹天气的影响和启示
+4. 只选择真正有价值的新闻（重大功能发布、战略合作、融资、技术突破等）
+
+输出 JSON 格式：
+{
+  "intelligence": [
+    {
+      "id": <时间戳>,
+      "title": "<简洁标题，20字内>",
+      "company": "<公司名>",
+      "field": "ToC",
+      "date": "${this.today}",
+      "type": "AI/产品/商业/技术",
+      "rating": "S/A/B",
+      "summary": "<情报摘要，80字内>",
+      "source": "<原始链接>",
+      "aiAnalysis": "<深层分析，50字内>",
+      "impactOnMoji": "对墨迹天气的影响：<具体影响，60字内>",
+      "ratingReason": "<评级理由，40字内>"
+    }
+  ]
+}`;
+    }
+
+    /**
+     * 备用分析方法
+     */
+    fallbackAnalysis(newsItems) {
+        const intelligence = [];
+        const importantKeywords = ['AI', 'artificial intelligence', '融资', 'funding', '收购', 'acquire',
+                                   '合作', 'partner', 'launch', 'release', '发布', 'new feature', '功能'];
+
+        for (const news of newsItems) {
+            const text = news.title + ' ' + news.snippet;
+            const hasImportantKeyword = importantKeywords.some(kw =>
+                text.toLowerCase().includes(kw.toLowerCase())
+            );
+
+            if (hasImportantKeyword && intelligence.length < 5) {
+                const company = this.extractCompany(text);
+
+                intelligence.push({
+                    id: Date.now() + Math.random() * 1000,
+                    title: news.title.substring(0, 50),
+                    company: company,
+                    field: "ToC",
+                    date: this.today,
+                    type: this.guessType(text),
+                    rating: "B",
+                    summary: news.snippet.substring(0, 100),
+                    source: news.source,
+                    aiAnalysis: `${company}的最新动态值得关注`,
+                    impactOnMoji: "对墨迹天气的影响：建议持续跟踪该公司动态",
+                    ratingReason: "行业动态，具有参考价值"
+                });
+            }
+        }
+
+        return intelligence;
+    }
+
+    /**
+     * 提取公司名
+     */
+    extractCompany(text) {
+        for (const company of TARGET_COMPANIES) {
+            if (text.includes(company)) {
+                return company;
+            }
+        }
+        return '气象公司';
+    }
+
+    /**
+     * 猜测类型
+     */
+    guessType(text) {
+        text = text.toLowerCase();
+        if (text.includes('ai') || text.includes('intelligence') || text.includes('machine learning')) return 'AI';
+        if (text.includes('partner') || text.includes('合作') || text.includes('funding') || text.includes('融资')) return '商业';
+        if (text.includes('feature') || text.includes('product') || text.includes('功能') || text.includes('产品')) return '产品';
+        return '技术';
+    }
+
+    /**
+     * 生成模拟情报
+     */
+    generateMockIntel() {
+        const companies = ['AccuWeather', 'The Weather Channel', 'Windy.com', '彩云天气'];
+        const types = ['AI', '产品', '商业', '技术'];
+        const updates = [
+            '推出AI驱动的新预测功能',
+            '优化用户界面体验',
+            '扩展国际市场',
+            '升级预测算法精度'
+        ];
+
+        const intel = [];
+        for (let i = 0; i < 3; i++) {
+            const company = companies[i % companies.length];
+            const type = types[i % types.length];
+
+            intel.push({
+                id: Date.now() + i,
+                title: `${company}${updates[i]}`,
+                company: company,
+                field: "ToC",
+                date: this.today,
+                type: type,
+                rating: "B",
+                summary: `${company}近期${updates[i]}，旨在提升用户体验和预测准确率。`,
+                source: `https://${company.toLowerCase().replace(/\s+/g, '')}.com`,
+                aiAnalysis: `${company}此举反映了行业向智能化方向发展的趋势`,
+                impactOnMoji: "对墨迹天气的影响：可作为产品规划参考",
+                ratingReason: "常规功能更新，行业普遍趋势"
+            });
+        }
+
+        return intel;
+    }
+
+    // 工具方法
+    cleanHTML(html) {
+        return html.replace(/<[^>]*>/g, '').substring(0, 200);
+    }
+
+    parseDate(dateStr) {
+        try {
+            const date = new Date(dateStr);
+            return date.toISOString().split('T')[0];
+        } catch {
+            return this.today;
+        }
+    }
+
+    deduplicateNews(newsItems) {
+        const seen = new Set();
+        return newsItems.filter(item => {
+            const key = item.title.toLowerCase().substring(0, 30);
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        });
+    }
+
+    /**
+     * 合并新旧数据
+     */
+    mergeData(currentData, newIntel) {
+        const allTocIntel = [...newIntel, ...currentData.tocIntelligence];
+        const uniqueTocIntel = this.deduplicateByTitle(allTocIntel).slice(0, 50);
+
+        const stats = {
+            weeklyIntel: this.countThisWeek(uniqueTocIntel),
+            keyIntel: uniqueTocIntel.filter(i => i.rating === 'S' || i.rating === 'A').length,
+            companies: 19,
+            trends: 8
+        };
+
+        const aiWeeklySummary = this.generateWeeklySummary(uniqueTocIntel);
+
+        return {
+            ...currentData,
+            stats,
+            aiWeeklySummary,
+            tocIntelligence: uniqueTocIntel,
+            tobIndustry: currentData.tobIndustry || { subway: [], aviation: [], energy: [] },
+            industryTrends: currentData.industryTrends || [],
+            keyCompanies: currentData.keyCompanies || [],
+            intelLibrary: currentData.intelLibrary || []
+        };
+    }
+
+    deduplicateByTitle(items) {
+        const seen = new Set();
+        return items.filter(item => {
+            const key = item.title.substring(0, 20);
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        });
+    }
+
+    countThisWeek(items) {
+        const weekAgo = new Date();
+        weekAgo.setDate(weekAgo.getDate() - 7);
+        return items.filter(item => new Date(item.date) >= weekAgo).length;
+    }
+
+    generateWeeklySummary(items) {
+        const recent = items.slice(0, 10);
+        const aiItems = recent.filter(i => i.type === 'AI');
+
+        return `本周气象行业ToC领域，主要竞品在${aiItems.length > 0 ? 'AI技术' : '产品功能'}方面持续投入。${
+            recent.length > 0 ? recent[0].company + '等厂商' : '各大厂商'
+        }发布了多项更新，行业整体呈现智能化、精细化发展趋势。`;
     }
 
     loadCurrentData() {
@@ -60,12 +505,7 @@ class WeatherIntelUpdater {
 
     getDefaultStructure() {
         return {
-            stats: {
-                weeklyIntel: 0,
-                keyIntel: 0,
-                companies: 19,
-                trends: 8
-            },
+            stats: { weeklyIntel: 0, keyIntel: 0, companies: 19, trends: 8 },
             aiWeeklySummary: "",
             tocIntelligence: [],
             tobIndustry: { subway: [], aviation: [], energy: [] },
@@ -75,196 +515,14 @@ class WeatherIntelUpdater {
         };
     }
 
-    /**
-     * 使用 Claude API 生成新情报
-     */
-    async generateNewIntel() {
-        console.log('→ 调用 Claude API 生成新情报...');
-
-        const prompt = this.buildPrompt();
-
-        // 如果设置了 ANTHROPIC_API_KEY 环境变量，调用真实 API
-        if (process.env.ANTHROPIC_API_KEY) {
-            return await this.callClaudeAPI(prompt);
-        } else {
-            // 否则生成模拟数据
-            console.log('  未检测到 ANTHROPIC_API_KEY，使用模拟数据');
-            return this.generateMockData();
-        }
-    }
-
-    buildPrompt() {
-        return `你是气象行业情报分析专家。请生成今天（${this.today}）的气象行业情报数据。
-
-要求：
-1. 生成 2-3 条 ToC 竞品情报（AccuWeather、The Weather Channel、Windy、彩云天气等）
-2. 生成 1-2 条 ToB 行业情报（地铁/航空/能源领域的气象服务项目）
-3. 情报内容要真实可信，基于这些公司的业务方向合理推演
-4. 情报评级：S（重大）、A（重要）、B（一般）
-5. 必须包含：标题、公司、日期、类型、摘要、AI分析、对墨迹天气的影响
-
-返回 JSON 格式。`;
-    }
-
-    async callClaudeAPI(prompt) {
-        // TODO: 实现真实的 Claude API 调用
-        // 需要安装 @anthropic-ai/sdk
-        return this.generateMockData();
-    }
-
-    /**
-     * 生成模拟数据
-     */
-    generateMockData() {
-        const companies = [
-            'AccuWeather', 'The Weather Channel', 'Windy.com',
-            '彩云天气', 'Weather & Radar', 'Weathernews'
-        ];
-
-        const types = ['AI', '产品', '商业', '技术'];
-        const ratings = ['S', 'A', 'B'];
-
-        const tocIntelligence = [];
-        const numItems = 2 + Math.floor(Math.random() * 2); // 2-3条
-
-        for (let i = 0; i < numItems; i++) {
-            const company = companies[Math.floor(Math.random() * companies.length)];
-            const type = types[Math.floor(Math.random() * types.length)];
-            const rating = ratings[Math.floor(Math.random() * ratings.length)];
-
-            tocIntelligence.push({
-                id: Date.now() + i,
-                title: `${company}${this.getRandomUpdate(type)}`,
-                company: company,
-                field: "ToC",
-                date: this.today,
-                type: type,
-                rating: rating,
-                summary: this.getRandomSummary(company, type),
-                source: `https://${company.toLowerCase().replace(/\s+/g, '')}.com/news`,
-                aiAnalysis: `${company}此举${this.getRandomAnalysis()}`,
-                impactOnMoji: `对墨迹天气的影响：${this.getRandomImpact()}`,
-                ratingReason: this.getRatingReason(rating)
-            });
-        }
-
-        return {
-            tocIntelligence,
-            tobIndustry: { subway: [], aviation: [], energy: [] },
-            industryTrends: [],
-            keyCompanies: [],
-            intelLibrary: []
-        };
-    }
-
-    getRandomUpdate(type) {
-        const updates = {
-            'AI': ['推出AI驱动的新功能', '强化AI预测能力', '上线智能分析系统', '集成大语言模型'],
-            '产品': ['发布新版本', '推出创新功能', '优化用户体验', '上线新特性'],
-            '商业': ['达成战略合作', '拓展新市场', '发布财报', '获得新融资'],
-            '技术': ['升级预测模型', '优化算法', '提升准确率', '改进数据源']
-        };
-        const list = updates[type] || updates['产品'];
-        return list[Math.floor(Math.random() * list.length)];
-    }
-
-    getRandomSummary(company, type) {
-        return `${company}宣布${type === 'AI' ? '推出基于AI的新功能' : '发布最新产品更新'}，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。`;
-    }
-
-    getRandomAnalysis() {
-        const analyses = [
-            '体现了在技术创新方面的持续投入',
-            '将进一步强化其市场竞争力',
-            '反映了行业向智能化方向发展的趋势',
-            '有助于提升用户粘性和市场份额'
-        ];
-        return analyses[Math.floor(Math.random() * analyses.length)];
-    }
-
-    getRandomImpact() {
-        const impacts = [
-            '需要关注竞品的技术进展，评估是否跟进',
-            '可以作为产品规划的参考，考虑类似功能',
-            '建议密切关注用户反馈和市场反应',
-            '值得评估对自身产品策略的启示'
-        ];
-        return impacts[Math.floor(Math.random() * impacts.length)];
-    }
-
-    getRatingReason(rating) {
-        const reasons = {
-            'S': '重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响',
-            'A': '重要功能更新，具有较强参考价值',
-            'B': '常规功能更新，行业普遍趋势'
-        };
-        return reasons[rating];
-    }
-
-    /**
-     * 合并新旧数据
-     */
-    mergeData(currentData, newIntel) {
-        // 合并 ToC 情报，保持最近 50 条
-        const allTocIntel = [...newIntel.tocIntelligence, ...currentData.tocIntelligence];
-        const uniqueTocIntel = this.deduplicateByTitle(allTocIntel).slice(0, 50);
-
-        // 更新统计数据
-        const stats = {
-            weeklyIntel: this.countThisWeek(uniqueTocIntel),
-            keyIntel: uniqueTocIntel.filter(i => i.rating === 'S' || i.rating === 'A').length,
-            companies: currentData.stats.companies || 19,
-            trends: currentData.stats.trends || 8
-        };
-
-        // 生成 AI 周摘要
-        const aiWeeklySummary = this.generateWeeklySummary(uniqueTocIntel);
-
-        return {
-            ...currentData,
-            stats,
-            aiWeeklySummary,
-            tocIntelligence: uniqueTocIntel,
-            // 保留其他数据
-            tobIndustry: currentData.tobIndustry || { subway: [], aviation: [], energy: [] },
-            industryTrends: currentData.industryTrends || [],
-            keyCompanies: currentData.keyCompanies || [],
-            intelLibrary: currentData.intelLibrary || []
-        };
-    }
-
-    deduplicateByTitle(items) {
-        const seen = new Set();
-        return items.filter(item => {
-            if (seen.has(item.title)) return false;
-            seen.add(item.title);
-            return true;
-        });
-    }
-
-    countThisWeek(items) {
-        const weekAgo = new Date();
-        weekAgo.setDate(weekAgo.getDate() - 7);
-        return items.filter(item => new Date(item.date) >= weekAgo).length;
-    }
-
-    generateWeeklySummary(items) {
-        const recent = items.slice(0, 10);
-        const aiItems = recent.filter(i => i.type === 'AI');
-        const productItems = recent.filter(i => i.type === '产品');
-
-        return `本周气象行业ToC领域，主要竞品在${aiItems.length > 0 ? 'AI技术' : '产品功能'}方面持续投入。${
-            recent.length > 0 ? recent[0].company + '等厂商' : '各大厂商'
-        }发布了多项更新，行业整体呈现智能化、精细化发展趋势。`;
-    }
-
-    /**
-     * 保存数据到 data.js
-     */
     saveData(data) {
-        const content = `// 气象行业情报监测平台 - 模拟数据\n\nconst MOCK_DATA = ${JSON.stringify(data, null, 4)};\n`;
+        const content = `// 气象行业情报监测平台 - 数据文件\n// 最后更新: ${new Date().toLocaleString('zh-CN')}\n\nconst MOCK_DATA = ${JSON.stringify(data, null, 4)};\n`;
         fs.writeFileSync(this.dataPath, content, 'utf-8');
         console.log(`  数据已保存到: ${this.dataPath}`);
+    }
+
+    sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 }
 

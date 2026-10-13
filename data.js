@@ -1,14 +1,113 @@
-// 气象行业情报监测平台 - 模拟数据
+// 气象行业情报监测平台 - 数据文件
+// 最后更新: 2026/10/13 09:30:27
 
 const MOCK_DATA = {
     "stats": {
-        "weeklyIntel": 16,
-        "keyIntel": 33,
+        "weeklyIntel": 20,
+        "keyIntel": 26,
         "companies": 19,
         "trends": 8
     },
-    "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。Weather & Radar等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
+    "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。AccuWeather等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
     "tocIntelligence": [
+        {
+            "id": 1791855028568.053,
+            "title": "NASA’s Roman Space Telescope set to launch Sunday ",
+            "company": "AccuWeather",
+            "field": "ToC",
+            "date": "2026-10-13",
+            "type": "技术",
+            "rating": "B",
+            "summary": "NASA’s Roman Space Telescope set to launch Sunday&nbsp;&nbsp;AccuWeather",
+            "source": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOa29IOXg5eEUxWUxMOTFIT2ZWRzFPakZNRmVGZ0FaUGl1QjB4U3JOdTk4cnJaSlBBSGpva2JaZ3BkR2FvQ3dvOXNTM2UtdlNnaWV4QUdXTU9qelJ1SXA1ZWI0ZnZhdHJfWU43cElhZ3AyRUVhY0hFejBiNmZVcURNQVpiV0xXZko0T1FzckF2dWsxb0g0VEZUSjFvNGNLZms?oc=5",
+            "aiAnalysis": "AccuWeather的最新动态值得关注",
+            "impactOnMoji": "对墨迹天气的影响：建议持续跟踪该公司动态",
+            "ratingReason": "行业动态，具有参考价值"
+        },
+        {
+            "id": 1791855028818.5422,
+            "title": "A windy corner of New Mexico becomes a launchpad f",
+            "company": "气象公司",
+            "field": "ToC",
+            "date": "2026-10-13",
+            "type": "技术",
+            "rating": "B",
+            "summary": "A windy corner of New Mexico becomes a launchpad for one of America’s fastest-growing jobs&nbsp;&nbs",
+            "source": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQRTBha0h5QmZUWFVwTkZMN1ZNNFNCY2Zqb1pic3VRSUp2akw3aWs1d3c0aG9BWlR3UDBLV3RSM3ZSZngzNDF2aWpKb0RobHdDSDFJMHFHOE5LMjBHRG0xT0xBR0F2VFQyZHZzbThvUEM2MzVQeGxkUG5OMlZzVzhPUHhHQU1waDdfRXRwUm1wOWwxSUkw?oc=5",
+            "aiAnalysis": "气象公司的最新动态值得关注",
+            "impactOnMoji": "对墨迹天气的影响：建议持续跟踪该公司动态",
+            "ratingReason": "行业动态，具有参考价值"
+        },
+        {
+            "id": 1791855028085.7783,
+            "title": "Tomorrow.io adds $35 million to DeepSky funding ro",
+            "company": "Tomorrow.io",
+            "field": "ToC",
+            "date": "2026-10-13",
+            "type": "商业",
+            "rating": "B",
+            "summary": "Tomorrow.io adds $35 million to DeepSky funding round&nbsp;&nbsp;SpaceNews",
+            "source": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPNFVJSl9MSW10b1Z0QlkyRnpUbEhYa3ZHd21kdnBpb05seG9KUFFiNlRtazFBOEphVFNEc0lZQ19EN0ZscnhTdDdNMUhFdC1FTWVLVDhmZFEtWDR6a2s4eGFma0o0dlVMVUZsRHdFY1B2UGUtbGZIQmEyWUF2ekNyQQ?oc=5",
+            "aiAnalysis": "Tomorrow.io的最新动态值得关注",
+            "impactOnMoji": "对墨迹天气的影响：建议持续跟踪该公司动态",
+            "ratingReason": "行业动态，具有参考价值"
+        },
+        {
+            "id": 1791855028812.216,
+            "title": "Kings of Leon Forge ‘Unlikely Partnership’ with We",
+            "company": "Weather Channel",
+            "field": "ToC",
+            "date": "2026-10-13",
+            "type": "商业",
+            "rating": "B",
+            "summary": "Kings of Leon Forge ‘Unlikely Partnership’ with Weather Channel for ‘Cold Blue Dawn’ Lyric Video&nbs",
+            "source": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQejhrbHdnMG5OcmJaOFJ3SHJWQ21VM1gzRHFRUkNDYTFTTXJ3NWd0cDZSQlVLZDBBMVlVTVo5cGlHcUd1UDBsMllyTTV4NEJGNVRUY05sYXB3OFBIdUlwRkxoY09jaWZfZDJtRnlfeWJTMHZqWkpDZUl0UHduZXotaHlfWUN2aVVubFdLdlVyRjE3dUdI?oc=5",
+            "aiAnalysis": "Weather Channel的最新动态值得关注",
+            "impactOnMoji": "对墨迹天气的影响：建议持续跟踪该公司动态",
+            "ratingReason": "行业动态，具有参考价值"
+        },
+        {
+            "id": 1791855028110.5532,
+            "title": "AccuWeather and Disney Experiences Launch Disney W",
+            "company": "AccuWeather",
+            "field": "ToC",
+            "date": "2026-10-13",
+            "type": "技术",
+            "rating": "B",
+            "summary": "AccuWeather and Disney Experiences Launch Disney Weather Check in New Global Agreement&nbsp;&nbsp;WD",
+            "source": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOVl8wWndQRHdaRHdQVDY3cllJOTd5ZlZqQ216VmlNNlhvY2V0alFjWktjZ0xYMnZoLTlLSVVFNDlLNEpGemFSZUNHVmhjdnZNUjQ2RElSS1g5TXFqaTZjVV9NbE5xalphc3NEUUF5RzR3T2lWSXljUUhnWGcxdm5ETWdfRGU0bTZ6ZWJtRHFmM0taQ3N1bWRYdHQ2bUdJajBHaUViT0lUVzZ0YlVLZnFzOVhrd3A5UkhEWDd0U2JNbGFfRGNzU09QdUhvblpWMUpxc0lDRHpYYmxfMTlZU2F1M0k3aXJtTFQ2RFE?oc=5",
+            "aiAnalysis": "AccuWeather的最新动态值得关注",
+            "impactOnMoji": "对墨迹天气的影响：建议持续跟踪该公司动态",
+            "ratingReason": "行业动态，具有参考价值"
+        },
+        {
+            "id": 1791854898297.1643,
+            "title": "Hurricane Isaias hit Gulf Coast, spread rain and w",
+            "company": "Weather Channel",
+            "field": "ToC",
+            "date": "2026-10-13",
+            "type": "AI",
+            "rating": "B",
+            "summary": "Hurricane Isaias hit Gulf Coast, spread rain and wind inland&nbsp;&nbsp;The Weather Channel",
+            "source": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOZ0JyNVZPb1pGYWNLcFUwMlhIcS1RcENJNGR6ZU5Cay03WEdBZDFUaGFhcURmZTBhS2pkY29tdzNBemkzVldnR3NIeEw4Ti1zT24ycV91U3dMQlNpbWxLV1NDaWhaeHMtUHFmU0dFVm5KU1BpQ1ctbkRBVFJfRVg2VEE2U0dZdUZZY0RSaGt4RjgwSWgwMGFWc1M2Z1BXay1MeHpjbTFYTl8?oc=5",
+            "aiAnalysis": "Weather Channel的最新动态值得关注",
+            "impactOnMoji": "对墨迹天气的影响：建议持续跟踪该公司动态",
+            "ratingReason": "行业动态，具有参考价值"
+        },
+        {
+            "id": 1791854899174.1199,
+            "title": "Dry weather aids Isaias recovery across the South ",
+            "company": "AccuWeather",
+            "field": "ToC",
+            "date": "2026-10-13",
+            "type": "AI",
+            "rating": "B",
+            "summary": "Dry weather aids Isaias recovery across the South&nbsp;&nbsp;AccuWeather",
+            "source": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPN1VuNWwtQVlibmt5Q3MtbjJNRDlLQVZkTDlVV00tZTlheWZXb0NzcEpOYnYzQ2dtanBXRHhVQnVsSkowNnlHZUx1anp5enVtZmVRazExOW9ka3J3M0lDUmNZOWZZWFJPUzBQQ3pDeVA2Z1FNbFRHdi1WNUZDM0NNdURIZ0FGMVBENmR1WkNjT0xRZ3Q5b1lQRGVKNm5XLTg?oc=5",
+            "aiAnalysis": "AccuWeather的最新动态值得关注",
+            "impactOnMoji": "对墨迹天气的影响：建议持续跟踪该公司动态",
+            "ratingReason": "行业动态，具有参考价值"
+        },
         {
             "id": 1791788301788,
             "title": "Weather & Radar改进数据源",
@@ -304,20 +403,6 @@ const MOCK_DATA = {
             "ratingReason": "重要功能更新，具有较强参考价值"
         },
         {
-            "id": 1790903448279,
-            "title": "The Weather Channel优化用户体验",
-            "company": "The Weather Channel",
-            "field": "ToC",
-            "date": "2026-10-02",
-            "type": "产品",
-            "rating": "S",
-            "summary": "The Weather Channel宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
-            "source": "https://theweatherchannel.com/news",
-            "aiAnalysis": "The Weather Channel此举将进一步强化其市场竞争力",
-            "impactOnMoji": "对墨迹天气的影响：值得评估对自身产品策略的启示",
-            "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
-        },
-        {
             "id": 1790903448280,
             "title": "AccuWeather升级预测模型",
             "company": "AccuWeather",
@@ -598,20 +683,6 @@ const MOCK_DATA = {
             "ratingReason": "常规功能更新，行业普遍趋势"
         },
         {
-            "id": 1789780106241,
-            "title": "The Weather Channel发布财报",
-            "company": "The Weather Channel",
-            "field": "ToC",
-            "date": "2026-09-19",
-            "type": "商业",
-            "rating": "S",
-            "summary": "The Weather Channel宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
-            "source": "https://theweatherchannel.com/news",
-            "aiAnalysis": "The Weather Channel此举有助于提升用户粘性和市场份额",
-            "impactOnMoji": "对墨迹天气的影响：可以作为产品规划的参考，考虑类似功能",
-            "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
-        },
-        {
             "id": 1789780106242,
             "title": "彩云天气拓展新市场",
             "company": "彩云天气",
@@ -637,76 +708,6 @@ const MOCK_DATA = {
             "source": "https://theweatherchannel.com/news",
             "aiAnalysis": "The Weather Channel此举体现了在技术创新方面的持续投入",
             "impactOnMoji": "对墨迹天气的影响：需要关注竞品的技术进展，评估是否跟进",
-            "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
-        },
-        {
-            "id": 1789607399072,
-            "title": "Weather & Radar优化算法",
-            "company": "Weather & Radar",
-            "field": "ToC",
-            "date": "2026-09-17",
-            "type": "技术",
-            "rating": "A",
-            "summary": "Weather & Radar宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
-            "source": "https://weather&radar.com/news",
-            "aiAnalysis": "Weather & Radar此举有助于提升用户粘性和市场份额",
-            "impactOnMoji": "对墨迹天气的影响：建议密切关注用户反馈和市场反应",
-            "ratingReason": "重要功能更新，具有较强参考价值"
-        },
-        {
-            "id": 1789607399073,
-            "title": "AccuWeather上线智能分析系统",
-            "company": "AccuWeather",
-            "field": "ToC",
-            "date": "2026-09-17",
-            "type": "AI",
-            "rating": "S",
-            "summary": "AccuWeather宣布推出基于AI的新功能，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
-            "source": "https://accuweather.com/news",
-            "aiAnalysis": "AccuWeather此举反映了行业向智能化方向发展的趋势",
-            "impactOnMoji": "对墨迹天气的影响：建议密切关注用户反馈和市场反应",
-            "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
-        },
-        {
-            "id": 1789519786291,
-            "title": "Weather & Radar上线智能分析系统",
-            "company": "Weather & Radar",
-            "field": "ToC",
-            "date": "2026-09-16",
-            "type": "AI",
-            "rating": "S",
-            "summary": "Weather & Radar宣布推出基于AI的新功能，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
-            "source": "https://weather&radar.com/news",
-            "aiAnalysis": "Weather & Radar此举将进一步强化其市场竞争力",
-            "impactOnMoji": "对墨迹天气的影响：可以作为产品规划的参考，考虑类似功能",
-            "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
-        },
-        {
-            "id": 1789463033353,
-            "title": "Weathernews拓展新市场",
-            "company": "Weathernews",
-            "field": "ToC",
-            "date": "2026-09-15",
-            "type": "商业",
-            "rating": "A",
-            "summary": "Weathernews宣布发布最新产品更新，旨在提升用户体验和预测准确率。该功能已在主要市场上线，预期将对行业产生积极影响。",
-            "source": "https://weathernews.com/news",
-            "aiAnalysis": "Weathernews此举有助于提升用户粘性和市场份额",
-            "impactOnMoji": "对墨迹天气的影响：建议密切关注用户反馈和市场反应",
-            "ratingReason": "重要功能更新，具有较强参考价值"
-        },
-        {
-            "id": 1,
-            "title": "AccuWeather推出AI驱动的极端天气预警系统",
-            "company": "AccuWeather",
-            "field": "ToC",
-            "date": "2026-09-05",
-            "type": "AI",
-            "rating": "S",
-            "summary": "AccuWeather宣布推出新一代AI极端天气预警系统，基于深度学习模型分析气象数据，可提前72小时预测极端天气事件，准确率提升40%。系统已在美国、欧洲市场上线，支持自然语言预警推送。",
-            "source": "https://www.accuweather.com/news",
-            "aiAnalysis": "这是AccuWeather在AI气象预测领域的重大突破，将AI能力从辅助分析提升到核心预警链路。72小时提前量和40%准确率提升具有明显竞争优势。",
-            "impactOnMoji": "对墨迹天气的影响：竞品在AI预警能力上形成领先优势，墨迹需要评估自身AI预警能力的差距，考虑是否加大AI气象预测投入。",
             "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
         }
     ],
