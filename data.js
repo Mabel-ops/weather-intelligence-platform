@@ -1,22 +1,21 @@
 // 气象行业情报监测平台 - 数据文件
-// 最后更新: 2026/10/13 18:45:58
-// 所有数据均为真实抓取
+// 最后更新: 2026/10/14 10:04:58
 
 const MOCK_DATA = {
     "stats": {
-        "weeklyIntel": 20,
+        "weeklyIntel": 19,
         "keyIntel": 26,
         "companies": 19,
-        "trends": 8
+        "trends": 0
     },
     "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在AI技术方面持续投入。AccuWeather等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
     "tocIntelligence": [
         {
-            "id": 1791857645169.7493,
+            "id": 1791943498871.3665,
             "title": "NASA’s Roman Space Telescope set to launch Sunday ",
             "company": "AccuWeather",
             "field": "ToC",
-            "date": "2026-10-13",
+            "date": "2026-10-14",
             "type": "技术",
             "rating": "B",
             "summary": "NASA’s Roman Space Telescope set to launch Sunday&nbsp;&nbsp;AccuWeather",
@@ -26,11 +25,11 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791857645880.3816,
+            "id": 1791943498269.2957,
             "title": "A windy corner of New Mexico becomes a launchpad f",
             "company": "气象公司",
             "field": "ToC",
-            "date": "2026-10-13",
+            "date": "2026-10-14",
             "type": "技术",
             "rating": "B",
             "summary": "A windy corner of New Mexico becomes a launchpad for one of America’s fastest-growing jobs&nbsp;&nbs",
@@ -40,11 +39,11 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791857645134.8982,
+            "id": 1791943498968.5972,
             "title": "Tomorrow.io adds $35 million to DeepSky funding ro",
             "company": "Tomorrow.io",
             "field": "ToC",
-            "date": "2026-10-13",
+            "date": "2026-10-14",
             "type": "商业",
             "rating": "B",
             "summary": "Tomorrow.io adds $35 million to DeepSky funding round&nbsp;&nbsp;SpaceNews",
@@ -54,11 +53,11 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791857644976.484,
+            "id": 1791943498204.3296,
             "title": "Kings of Leon Forge ‘Unlikely Partnership’ with We",
             "company": "Weather Channel",
             "field": "ToC",
-            "date": "2026-10-13",
+            "date": "2026-10-14",
             "type": "商业",
             "rating": "B",
             "summary": "Kings of Leon Forge ‘Unlikely Partnership’ with Weather Channel for ‘Cold Blue Dawn’ Lyric Video&nbs",
@@ -68,11 +67,11 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791857645887.1418,
+            "id": 1791943498719.5696,
             "title": "AccuWeather and Disney Experiences Launch Disney W",
             "company": "AccuWeather",
             "field": "ToC",
-            "date": "2026-10-13",
+            "date": "2026-10-14",
             "type": "技术",
             "rating": "B",
             "summary": "AccuWeather and Disney Experiences Launch Disney Weather Check in New Global Agreement&nbsp;&nbsp;WD",
@@ -711,5 +710,11 @@ const MOCK_DATA = {
             "impactOnMoji": "对墨迹天气的影响：需要关注竞品的技术进展，评估是否跟进",
             "ratingReason": "重大产品功能发布，涉及核心竞争力，对行业竞争格局有明显影响"
         }
-    ]
+    ],
+    "tobIndustry": {
+        "aviation": [],
+        "energy": [],
+        "subway": []
+    },
+    "industryTrends": []
 };

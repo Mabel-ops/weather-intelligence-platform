@@ -792,6 +792,89 @@ body {
     }
 }
 
+/* 无数据提示 */
+.no-data {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.no-data h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.no-data p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+/* ToB 行业页面 */
+.tob-overview, .industry-page {
+    padding: 2rem;
+}
+
+.industry-sections {
+    margin-top: 2rem;
+}
+
+/* 趋势页面 */
+.trends-page {
+    padding: 2rem;
+}
+
+.trends-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.trend-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+}
+
+.trend-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.trend-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.trend-title {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.trend-summary {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.trend-impact {
+    background: #f0f9ff;
+    border-left: 3px solid var(--primary-color);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+}
+
+.trend-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
 /* 开发中页面 */
 .coming-soon {
     text-align: center;

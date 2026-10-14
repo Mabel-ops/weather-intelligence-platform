@@ -49,6 +49,15 @@ class WeatherIntelligencePlatform {
             case 'toc':
                 container.innerHTML = this.renderIntelligencePage();
                 break;
+            case 'tob':
+            case 'tob-aviation':
+            case 'tob-energy':
+            case 'tob-metro':
+                container.innerHTML = this.renderToBPage(page);
+                break;
+            case 'trends':
+                container.innerHTML = this.renderTrendsPage();
+                break;
             default:
                 container.innerHTML = this.renderComingSoon(page);
         }
@@ -182,6 +191,180 @@ class WeatherIntelligencePlatform {
                 <div class="intel-footer">
                     <span class="type-badge">${item.type}</span>
                     <a href="${item.source}" target="_blank" class="source-link">查看原文 →</a>
+                </div>
+            </div>
+        `;
+    }
+
+    renderToBPage(page) {
+        const industries = {
+            'tob': { name: 'ToB 行业情报总览', data: null },
+            'tob-aviation': { name: '航空气象', data: MOCK_DATA.tobIndustry?.aviation || [] },
+            'tob-energy': { name: '能源气象', data: MOCK_DATA.tobIndustry?.energy || [] },
+            'tob-metro': { name: '交通/地铁气象', data: MOCK_DATA.tobIndustry?.subway || [] }
+        };
+
+        const industry = industries[page];
+
+        // 如果是总览页面
+        if (page === 'tob') {
+            const aviationCount = MOCK_DATA.tobIndustry?.aviation?.length || 0;
+            const energyCount = MOCK_DATA.tobIndustry?.energy?.length || 0;
+            const subwayCount = MOCK_DATA.tobIndustry?.subway?.length || 0;
+            const total = aviationCount + energyCount + subwayCount;
+
+            return `
+                <div class="tob-overview">
+                    <h1>ToB 行业情报</h1>
+                    <p class="subtitle">气象服务在各行业的应用动态</p>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">${total}</div>
+                            <div class="stat-label">总情报数</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">${aviationCount}</div>
+                            <div class="stat-label">航空气象</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">${energyCount}</div>
+                            <div class="stat-label">能源气象</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">${subwayCount}</div>
+                            <div class="stat-label">交通气象</div>
+                        </div>
+                    </div>
+
+                    ${total > 0 ? `
+                        <div class="industry-sections">
+                            ${aviationCount > 0 ? `
+                                <div class="section">
+                                    <h2>✈️ 航空气象</h2>
+                                    <div class="intel-list">
+                                        ${MOCK_DATA.tobIndustry.aviation.slice(0, 3).map(item => this.renderToBCard(item)).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+                            ${energyCount > 0 ? `
+                                <div class="section">
+                                    <h2>⚡ 能源气象</h2>
+                                    <div class="intel-list">
+                                        ${MOCK_DATA.tobIndustry.energy.slice(0, 3).map(item => this.renderToBCard(item)).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+                            ${subwayCount > 0 ? `
+                                <div class="section">
+                                    <h2>🚇 交通气象</h2>
+                                    <div class="intel-list">
+                                        ${MOCK_DATA.tobIndustry.subway.slice(0, 3).map(item => this.renderToBCard(item)).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+                        </div>
+                    ` : `
+                        <div class="no-data">
+                            <p>📊 暂无 ToB 行业情报</p>
+                            <p>数据正在积累中，请稍后查看</p>
+                        </div>
+                    `}
+                </div>
+            `;
+        }
+
+        // 单个行业页面
+        if (!industry.data || industry.data.length === 0) {
+            return `
+                <div class="no-data">
+                    <h1>${industry.name}</h1>
+                    <p>📊 暂无${industry.name}情报</p>
+                    <p>数据正在积累中，请稍后查看</p>
+                </div>
+            `;
+        }
+
+        return `
+            <div class="industry-page">
+                <h1>${industry.name}</h1>
+                <p class="subtitle">共 ${industry.data.length} 条情报</p>
+
+                <div class="intel-list">
+                    ${industry.data.map(item => this.renderToBCard(item)).join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    renderToBCard(item) {
+        return `
+            <div class="intel-card">
+                <div class="intel-header">
+                    <span class="date">${item.date}</span>
+                    <span class="type-badge">${item.type || 'ToB'}</span>
+                </div>
+                <h3 class="intel-title">${item.title}</h3>
+                <p class="intel-summary">${item.summary}</p>
+                ${item.aiAnalysis ? `
+                    <div class="intel-analysis">
+                        <strong>分析：</strong>${item.aiAnalysis}
+                    </div>
+                ` : ''}
+                ${item.impactOnMoji ? `
+                    <div class="intel-impact">
+                        <strong>${item.impactOnMoji}</strong>
+                    </div>
+                ` : ''}
+                <div class="intel-footer">
+                    <a href="${item.source}" target="_blank" class="source-link">查看原文 →</a>
+                </div>
+            </div>
+        `;
+    }
+
+    renderTrendsPage() {
+        const trends = MOCK_DATA.industryTrends || [];
+
+        if (trends.length === 0) {
+            return `
+                <div class="no-data">
+                    <h1>行业趋势</h1>
+                    <p>📈 暂无行业趋势数据</p>
+                    <p>数据正在积累中，请稍后查看</p>
+                </div>
+            `;
+        }
+
+        return `
+            <div class="trends-page">
+                <h1>行业趋势</h1>
+                <p class="subtitle">气象行业最新趋势与洞察</p>
+                <p class="filter-bar">共 ${trends.length} 条趋势</p>
+
+                <div class="trends-list">
+                    ${trends.map(trend => this.renderTrendCard(trend)).join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    renderTrendCard(trend) {
+        return `
+            <div class="trend-card">
+                <div class="trend-header">
+                    <span class="date">${trend.date}</span>
+                    <span class="type-badge">${trend.type}</span>
+                </div>
+                <h3 class="trend-title">📈 ${trend.title}</h3>
+                <p class="trend-summary">${trend.summary}</p>
+                ${trend.impact ? `
+                    <div class="trend-impact">
+                        <strong>行业影响：</strong>${trend.impact}
+                    </div>
+                ` : ''}
+                <div class="trend-footer">
+                    <a href="${trend.source}" target="_blank" class="source-link">查看原文 →</a>
                 </div>
             </div>
         `;
