@@ -1,5 +1,5 @@
 // 气象行业情报监测平台 - 数据文件
-// 最后更新: 2026/10/14 10:25:46
+// 最后更新: 2026/10/14 05:49:04
 
 const MOCK_DATA = {
     "stats": {
@@ -11,7 +11,7 @@ const MOCK_DATA = {
     "aiWeeklySummary": "本周气象行业ToC领域，主要竞品在产品功能方面持续投入。AccuWeather等厂商发布了多项更新，行业整体呈现智能化、精细化发展趋势。",
     "tocIntelligence": [
         {
-            "id": 1791944746668.4937,
+            "id": 1791956944403.5889,
             "title": "NASA’s Roman Space Telescope set to launch Sunday - AccuWeat",
             "company": "AccuWeather",
             "field": "ToC",
@@ -25,7 +25,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791944746738.3794,
+            "id": 1791956944203.9854,
             "title": "A windy corner of New Mexico becomes a launchpad for one of ",
             "company": "气象公司",
             "field": "ToC",
@@ -39,7 +39,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791944746494.652,
+            "id": 1791956944087.2146,
             "title": "Tomorrow.io adds $35 million to DeepSky funding round - Spac",
             "company": "Tomorrow.io",
             "field": "ToC",
@@ -53,7 +53,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791944746308.2134,
+            "id": 1791956944496.0916,
             "title": "Kings of Leon Forge ‘Unlikely Partnership’ with Weather Chan",
             "company": "Weather Channel",
             "field": "ToC",
@@ -67,7 +67,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791944746795.3086,
+            "id": 1791956944245.521,
             "title": "AccuWeather and Disney Experiences Launch Disney Weather Che",
             "company": "AccuWeather",
             "field": "ToC",
@@ -81,7 +81,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791944746695.349,
+            "id": 1791956944548.5073,
             "title": "West Siders Turn Out For Healthy Food Event As Windy City Ha",
             "company": "Windy",
             "field": "ToC",
@@ -95,7 +95,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791944746262.7754,
+            "id": 1791956944608.2979,
             "title": "Judge limits Kalshi markets in WA as partnership with Weathe",
             "company": "Weather Channel",
             "field": "ToC",
@@ -109,7 +109,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791944746754.568,
+            "id": 1791956945047.384,
             "title": "Artemis II: Weather ‘go’ for historic moon launch - AccuWeat",
             "company": "AccuWeather",
             "field": "ToC",
@@ -123,7 +123,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791944746182.239,
+            "id": 1791956944245.702,
             "title": "New satellites launch to track ocean heat, drought and plant",
             "company": "AccuWeather",
             "field": "ToC",
@@ -137,7 +137,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791944746915.607,
+            "id": 1791956944312.0752,
             "title": "NASA says it’s ‘go’ for Artemis II launch on April 1 - AccuW",
             "company": "AccuWeather",
             "field": "ToC",
@@ -151,7 +151,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791944746693.2258,
+            "id": 1791956944556.2551,
             "title": "NASA now eyes March for Artemis II launch after fueling test",
             "company": "AccuWeather",
             "field": "ToC",
@@ -165,7 +165,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791944746491.8179,
+            "id": 1791956944524.1194,
             "title": "Disney, AccuWeather Launch Weather App for Theme Park Guests",
             "company": "AccuWeather",
             "field": "ToC",
@@ -179,7 +179,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791944746721.5989,
+            "id": 1791956944085.2512,
             "title": "Weather intelligence unicorn Tomorrow.io expands Series F to",
             "company": "Tomorrow.io",
             "field": "ToC",
@@ -193,7 +193,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791944746475.444,
+            "id": 1791956944096.0098,
             "title": "The Skin Cancer Foundation and AccuWeather® Announce Partner",
             "company": "AccuWeather",
             "field": "ToC",
@@ -207,21 +207,7 @@ const MOCK_DATA = {
             "ratingReason": "行业动态，具有参考价值"
         },
         {
-            "id": 1791944746102.8413,
-            "title": "Tomorrow.io Raises $35M in Series F Extension Funding - FinS",
-            "company": "Tomorrow.io",
-            "field": "ToC",
-            "date": "2026-10-14",
-            "type": "AI",
-            "rating": "B",
-            "summary": "Tomorrow.io Raises $35M in Series F Extension Funding&nbsp;&nbsp;FinSMEs",
-            "source": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPRVZWajdJdmI4cVlQUDlrUEIwLXNUYV9tMlBTczB1WEVIa1dIT2xOdUJTZjJESGpWM3lCZWZCVmdkRElZLVIxUjZkVEUtMjRrR1N5QVhuQnV4N2xlQnBmV09JMmtfVUYzMEotUm9JN0VrQ2NpUXktbVFxT2tlazBmRGJPZVRObEppUUdIMWxHWFRsYVk?oc=5",
-            "aiAnalysis": "Tomorrow.io的最新动态值得关注",
-            "impactOnMoji": "对墨迹天气的影响：建议持续跟踪该公司动态",
-            "ratingReason": "行业动态，具有参考价值"
-        },
-        {
-            "id": 1791944746426.6345,
+            "id": 1791956944598.9282,
             "title": "Tomorrow.io to Launch Weather Monitoring Constellation - Pay",
             "company": "Tomorrow.io",
             "field": "ToC",
@@ -230,6 +216,20 @@ const MOCK_DATA = {
             "rating": "B",
             "summary": "Tomorrow.io to Launch Weather Monitoring Constellation&nbsp;&nbsp;Payload Space",
             "source": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNSWdablg4YTMtUFZINFR3QzlWT2M3Nk9HWkVJdUZ3cGp3RV8taGV6eXU4cktERFdFZUVoekZiNXQzTm1hX3pTd24tVVAxUGstLWlHcmlJTzV6SkdrRGs4ZmY2SE9uMTRvZ1k4ck1MQVNUT3EwbkFvTk84WVpocVN3VXZWaVRtUUE?oc=5",
+            "aiAnalysis": "Tomorrow.io的最新动态值得关注",
+            "impactOnMoji": "对墨迹天气的影响：建议持续跟踪该公司动态",
+            "ratingReason": "行业动态，具有参考价值"
+        },
+        {
+            "id": 1791956944110.6482,
+            "title": "Tomorrow.io Raises $35M in Series F Extension Funding - FinS",
+            "company": "Tomorrow.io",
+            "field": "ToC",
+            "date": "2026-10-14",
+            "type": "AI",
+            "rating": "B",
+            "summary": "Tomorrow.io Raises $35M in Series F Extension Funding&nbsp;&nbsp;FinSMEs",
+            "source": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPRVZWajdJdmI4cVlQUDlrUEIwLXNUYV9tMlBTczB1WEVIa1dIT2xOdUJTZjJESGpWM3lCZWZCVmdkRElZLVIxUjZkVEUtMjRrR1N5QVhuQnV4N2xlQnBmV09JMmtfVUYzMEotUm9JN0VrQ2NpUXktbVFxT2tlazBmRGJPZVRObEppUUdIMWxHWFRsYVk?oc=5",
             "aiAnalysis": "Tomorrow.io的最新动态值得关注",
             "impactOnMoji": "对墨迹天气的影响：建议持续跟踪该公司动态",
             "ratingReason": "行业动态，具有参考价值"
@@ -714,7 +714,7 @@ const MOCK_DATA = {
     "tobIndustry": {
         "aviation": [
             {
-                "id": 1791944746532.7812,
+                "id": 1791956944983.0215,
                 "title": "New aviation weather system improves US air travel efficienc",
                 "company": "气象公司",
                 "field": "ToB",
@@ -728,7 +728,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746856.7104,
+                "id": 1791956944568.7559,
                 "title": "Replacing airport weather system a high priority for City of",
                 "company": "气象公司",
                 "field": "ToB",
@@ -742,7 +742,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746581.0208,
+                "id": 1791956944304.338,
                 "title": "Vaisala confirms EUR 25 million airport weather modernizatio",
                 "company": "气象公司",
                 "field": "ToB",
@@ -756,7 +756,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746531.0078,
+                "id": 1791956944380.5554,
                 "title": "Taiwan to boost flight safety with new system - Taipei Times",
                 "company": "气象公司",
                 "field": "ToB",
@@ -770,7 +770,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746776.2476,
+                "id": 1791956944482.9043,
                 "title": "Advanced aviation weather system launched at IGI - The Times",
                 "company": "气象公司",
                 "field": "ToB",
@@ -784,21 +784,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746294.2969,
-                "title": "Aviation Weather - National Weather Service (.gov)",
-                "company": "气象公司",
-                "field": "ToB",
-                "date": "2026-10-14",
-                "type": "技术",
-                "rating": "B",
-                "summary": "Aviation Weather&nbsp;&nbsp;National Weather Service (.gov)",
-                "source": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5jNk1taVBKSTlNYzFPdUJ6QTBJUU1kTXpPOXlTQmNrTzJPeDlSX3I3WHQ2ZjhvNUhhQlE1N1dxbmJsT05uV29sOS01dno?oc=5",
-                "aiAnalysis": "aviation气象领域的最新动态",
-                "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
-                "ratingReason": "行业动态，具有参考价值"
-            },
-            {
-                "id": 1791944746108.4563,
+                "id": 1791956944795.2197,
                 "title": "UK Met Office trials integrated aviation weather visualisati",
                 "company": "气象公司",
                 "field": "ToB",
@@ -812,7 +798,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746022.4592,
+                "id": 1791956945044.2527,
                 "title": "Aviation Weather Forecasting: A History of Enhancing Air Fli",
                 "company": "气象公司",
                 "field": "ToB",
@@ -826,7 +812,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746152.689,
+                "id": 1791956945014.9482,
                 "title": "Aviation weather intelligence: Delhi airport launches SKYCAS",
                 "company": "气象公司",
                 "field": "ToB",
@@ -840,7 +826,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746849.8647,
+                "id": 1791956944717.8293,
                 "title": "Reps. Begich, Gillen Lead Bipartisan Aviation Weather Safety",
                 "company": "气象公司",
                 "field": "ToB",
@@ -854,7 +840,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746868.924,
+                "id": 1791956944171.1587,
                 "title": "Delhi Airport: Weather Intelligence System SKYCAST - Rediff ",
                 "company": "气象公司",
                 "field": "ToB",
@@ -868,77 +854,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746917.5718,
-                "title": "NiMet Retains, Expands ISO Certification in Aviation Weather",
-                "company": "气象公司",
-                "field": "ToB",
-                "date": "2026-10-14",
-                "type": "AI",
-                "rating": "B",
-                "summary": "NiMet Retains, Expands ISO Certification in Aviation Weather Service Delivery&nbsp;&nbsp;Radio Nigeria Lagos",
-                "source": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPcE0wMXdBR2Q3RXJGOWpES3hWVW5ZN1FJYkJQVjM0LXRFOUJJV1h2RUM5Znh6NTdReXBnTlV2VG5tZ3VGTlpsNkY5ejVORWRnOFdjMHlDRTk3MjZfejg3ZGdlSTFGeU5CS0RKZXN1VkF6bC01N2xTZWp5UDgzclJ4NW5tSVotSWZ0NFAtNlgyR1E3YzUycGpvdGpFMThJU29KeFVRaTB6d3ZaWG5uSHJJ?oc=5",
-                "aiAnalysis": "aviation气象领域的最新动态",
-                "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
-                "ratingReason": "行业动态，具有参考价值"
-            },
-            {
-                "id": 1791944746453.882,
-                "title": "Burlington airport, weather service staff work unpaid during",
-                "company": "气象公司",
-                "field": "ToB",
-                "date": "2026-10-14",
-                "type": "AI",
-                "rating": "B",
-                "summary": "Burlington airport, weather service staff work unpaid during government shutdown&nbsp;&nbsp;WPTZ",
-                "source": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQbVB6U3BBVW1ELVZ4czhtUjhBWHpMY0J1eWpybTlzbkp5b2QyczA5Z0tnMXRKQzdEbk40enJ3eHRhSjJwVzkydGJ6UmpiRlljQmprcERRNk5UNUU3R09HOWNZYUZqZzRGX2VQS0ZZMXNoVHQ2OFBpLWRFdWZEMmRQTGJpblRkQ3djNnVKVVh0OUctN2p6Ul9DS2tMVTIxQk5RTVJJMzM4TmFaZDVmVHp6QTZwMHdrdw?oc=5",
-                "aiAnalysis": "aviation气象领域的最新动态",
-                "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
-                "ratingReason": "行业动态，具有参考价值"
-            },
-            {
-                "id": 1791944746193.4814,
-                "title": "Aviation Weather Display (AWD) - Federal Aviation Administra",
-                "company": "气象公司",
-                "field": "ToB",
-                "date": "2026-10-14",
-                "type": "技术",
-                "rating": "B",
-                "summary": "Aviation Weather Display (AWD)&nbsp;&nbsp;Federal Aviation Administration (.gov)",
-                "source": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1EamdMZk5URDAySTRxQTk4YXFoVHNmQ0dzX1psREpDT2k0VFVGRDR6NVQ5UXFLa0lmYXRPMkZBWjNPWFJxcWhkV2FOcFBURXZIbUFuaUhxRkw4eWJJSVl1a2pR?oc=5",
-                "aiAnalysis": "aviation气象领域的最新动态",
-                "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
-                "ratingReason": "行业动态，具有参考价值"
-            },
-            {
-                "id": 1791944746356.6084,
-                "title": "Growing STEM: A look inside the National Weather Service's A",
-                "company": "气象公司",
-                "field": "ToB",
-                "date": "2026-10-14",
-                "type": "技术",
-                "rating": "B",
-                "summary": "Growing STEM: A look inside the National Weather Service's Aviation Weather Center&nbsp;&nbsp;WKYC",
-                "source": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQRjRpOXhkRVM0SHJFOE4wWTNLQU40cWxMakVUT2pLM2Q1NklSbWpUeXdhLWdERmdBbzQzMExmZVRZS1JneXFTY2dCMWRsdGxmRi1PVG1YMDVrOVQ3S2d3dzFaZktMcS13SS1yYVJ1ZDh0STVPam82QXhoQUcwSGFTNjRVdlFfdC00aGhLa3lIU3VSU2FxdWw4Z25BNTYyXzBVRGFyczBtUmViTWhLcTRhOThjU3lyX3J1T3RPQndhTG1MUHJwTFlYU0dKWW9iSjFUdTd3QktQcEhHa0phanVQQ3FzTQ?oc=5",
-                "aiAnalysis": "aviation气象领域的最新动态",
-                "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
-                "ratingReason": "行业动态，具有参考价值"
-            },
-            {
-                "id": 1791944746898.9744,
-                "title": "NOAA improves aviation forecasts to bolster U.S. air travel ",
-                "company": "气象公司",
-                "field": "ToB",
-                "date": "2026-10-14",
-                "type": "AI",
-                "rating": "B",
-                "summary": "NOAA improves aviation forecasts to bolster U.S. air travel efficiency, safety&nbsp;&nbsp;National Oceanic and Atmospheric Administration (.gov)",
-                "source": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQV3BfY3IxdkZhaHh1Sjl4OEZpSDZRb2xTOEhWdUFZVUtWaThTRDA0Zm5IbGczYVZKc1ZzR0NUSlBNUVJnZHRZandaYmVYRmI0Y0VvTWxTS0xUclROUGdTUmlLcko4dnYxUmd1cEVhXy1FWXBmdi1tVW51aVdNOWF5M1g5RV8xZDV5UTFiN0Y0U19SdnNBa0NRSjYyUjZ0X3Ywc0FsY2RqYw?oc=5",
-                "aiAnalysis": "aviation气象领域的最新动态",
-                "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
-                "ratingReason": "行业动态，具有参考价值"
-            },
-            {
-                "id": 1791944746556.2432,
+                "id": 1791956945035.2683,
                 "title": "New turbulence detection tool aims to make commercial flight",
                 "company": "气象公司",
                 "field": "ToB",
@@ -952,7 +868,91 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746899.557,
+                "id": 1791956945051.5417,
+                "title": "NiMet Retains, Expands ISO Certification in Aviation Weather",
+                "company": "气象公司",
+                "field": "ToB",
+                "date": "2026-10-14",
+                "type": "AI",
+                "rating": "B",
+                "summary": "NiMet Retains, Expands ISO Certification in Aviation Weather Service Delivery&nbsp;&nbsp;Radio Nigeria Lagos",
+                "source": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPcE0wMXdBR2Q3RXJGOWpES3hWVW5ZN1FJYkJQVjM0LXRFOUJJV1h2RUM5Znh6NTdReXBnTlV2VG5tZ3VGTlpsNkY5ejVORWRnOFdjMHlDRTk3MjZfejg3ZGdlSTFGeU5CS0RKZXN1VkF6bC01N2xTZWp5UDgzclJ4NW5tSVotSWZ0NFAtNlgyR1E3YzUycGpvdGpFMThJU29KeFVRaTB6d3ZaWG5uSHJJ?oc=5",
+                "aiAnalysis": "aviation气象领域的最新动态",
+                "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
+                "ratingReason": "行业动态，具有参考价值"
+            },
+            {
+                "id": 1791956944732.488,
+                "title": "Weather Technology in the Cockpit - Federal Aviation Adminis",
+                "company": "气象公司",
+                "field": "ToB",
+                "date": "2026-10-14",
+                "type": "技术",
+                "rating": "B",
+                "summary": "Weather Technology in the Cockpit&nbsp;&nbsp;Federal Aviation Administration (.gov)",
+                "source": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1MeFp0VUlSMFFKdlpSaUx5VWhpTzA0U3hNa1drQU1GSkQzeVg3bXlmWU11T2xHak4zREpHVUlKTnpXb3hCOUJ4aWdBQWZSY1AzZVdydDNRMl9GZ2I1aHc?oc=5",
+                "aiAnalysis": "aviation气象领域的最新动态",
+                "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
+                "ratingReason": "行业动态，具有参考价值"
+            },
+            {
+                "id": 1791956944756.851,
+                "title": "Burlington airport, weather service staff work unpaid during",
+                "company": "气象公司",
+                "field": "ToB",
+                "date": "2026-10-14",
+                "type": "AI",
+                "rating": "B",
+                "summary": "Burlington airport, weather service staff work unpaid during government shutdown&nbsp;&nbsp;WPTZ",
+                "source": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQbVB6U3BBVW1ELVZ4czhtUjhBWHpMY0J1eWpybTlzbkp5b2QyczA5Z0tnMXRKQzdEbk40enJ3eHRhSjJwVzkydGJ6UmpiRlljQmprcERRNk5UNUU3R09HOWNZYUZqZzRGX2VQS0ZZMXNoVHQ2OFBpLWRFdWZEMmRQTGJpblRkQ3djNnVKVVh0OUctN2p6Ul9DS2tMVTIxQk5RTVJJMzM4TmFaZDVmVHp6QTZwMHdrdw?oc=5",
+                "aiAnalysis": "aviation气象领域的最新动态",
+                "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
+                "ratingReason": "行业动态，具有参考价值"
+            },
+            {
+                "id": 1791956945025.7148,
+                "title": "Growing STEM: A look inside the National Weather Service's A",
+                "company": "气象公司",
+                "field": "ToB",
+                "date": "2026-10-14",
+                "type": "技术",
+                "rating": "B",
+                "summary": "Growing STEM: A look inside the National Weather Service's Aviation Weather Center&nbsp;&nbsp;WKYC",
+                "source": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQRjRpOXhkRVM0SHJFOE4wWTNLQU40cWxMakVUT2pLM2Q1NklSbWpUeXdhLWdERmdBbzQzMExmZVRZS1JneXFTY2dCMWRsdGxmRi1PVG1YMDVrOVQ3S2d3dzFaZktMcS13SS1yYVJ1ZDh0STVPam82QXhoQUcwSGFTNjRVdlFfdC00aGhLa3lIU3VSU2FxdWw4Z25BNTYyXzBVRGFyczBtUmViTWhLcTRhOThjU3lyX3J1T3RPQndhTG1MUHJwTFlYU0dKWW9iSjFUdTd3QktQcEhHa0phanVQQ3FzTQ?oc=5",
+                "aiAnalysis": "aviation气象领域的最新动态",
+                "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
+                "ratingReason": "行业动态，具有参考价值"
+            },
+            {
+                "id": 1791956944809.821,
+                "title": "NOAA improves aviation forecasts to bolster U.S. air travel ",
+                "company": "气象公司",
+                "field": "ToB",
+                "date": "2026-10-14",
+                "type": "AI",
+                "rating": "B",
+                "summary": "NOAA improves aviation forecasts to bolster U.S. air travel efficiency, safety&nbsp;&nbsp;National Oceanic and Atmospheric Administration (.gov)",
+                "source": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQV3BfY3IxdkZhaHh1Sjl4OEZpSDZRb2xTOEhWdUFZVUtWaThTRDA0Zm5IbGczYVZKc1ZzR0NUSlBNUVJnZHRZandaYmVYRmI0Y0VvTWxTS0xUclROUGdTUmlLcko4dnYxUmd1cEVhXy1FWXBmdi1tVW51aVdNOWF5M1g5RV8xZDV5UTFiN0Y0U19SdnNBa0NRSjYyUjZ0X3Ywc0FsY2RqYw?oc=5",
+                "aiAnalysis": "aviation气象领域的最新动态",
+                "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
+                "ratingReason": "行业动态，具有参考价值"
+            },
+            {
+                "id": 1791956944280.624,
+                "title": "Aviation Weather Display (AWD) - Federal Aviation Administra",
+                "company": "气象公司",
+                "field": "ToB",
+                "date": "2026-10-14",
+                "type": "技术",
+                "rating": "B",
+                "summary": "Aviation Weather Display (AWD)&nbsp;&nbsp;Federal Aviation Administration (.gov)",
+                "source": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1EamdMZk5URDAySTRxQTk4YXFoVHNmQ0dzX1psREpDT2k0VFVGRDR6NVQ5UXFLa0lmYXRPMkZBWjNPWFJxcWhkV2FOcFBURXZIbUFuaUhxRkw4eWJJSVl1a2pR?oc=5",
+                "aiAnalysis": "aviation气象领域的最新动态",
+                "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
+                "ratingReason": "行业动态，具有参考价值"
+            },
+            {
+                "id": 1791956944670.0735,
                 "title": "Aviation Weather Center Information - National Weather Servi",
                 "company": "气象公司",
                 "field": "ToB",
@@ -966,7 +966,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746707.2026,
+                "id": 1791956944356.8508,
                 "title": "Alaskan Aviation Weather Unit Information - National Weather",
                 "company": "气象公司",
                 "field": "ToB",
@@ -980,7 +980,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746071.4297,
+                "id": 1791956945010.4875,
                 "title": "AAWU Graphic updates - National Weather Service (.gov)",
                 "company": "气象公司",
                 "field": "ToB",
@@ -996,7 +996,7 @@ const MOCK_DATA = {
         ],
         "energy": [
             {
-                "id": 1791944746176.537,
+                "id": 1791956944380.0635,
                 "title": "U.S. Solar and Wind Growth in 2025 - Climate Central",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1010,7 +1010,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746164.1472,
+                "id": 1791956944310.6167,
                 "title": "Generative High-Resolution Ensemble Weather Forecast Support",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1024,7 +1024,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746466.8315,
+                "id": 1791956945213.4111,
                 "title": "Clean energy more reliable than fossil fuel power, data show",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1038,7 +1038,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746485.0784,
+                "id": 1791956944671.58,
                 "title": "High-impact weather effects on wind and solar power systems ",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1052,7 +1052,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746017.8374,
+                "id": 1791956944804.9246,
                 "title": "Space data that stabilises renewable energy grids | RESPONDE",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1066,7 +1066,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746572.3003,
+                "id": 1791956945087.4604,
                 "title": "Energy companies incorporating weather data into operations ",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1080,7 +1080,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746064.2073,
+                "id": 1791956944343.31,
                 "title": "Assessing renewable wind and solar energy yield with gridded",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1094,7 +1094,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746543.1782,
+                "id": 1791956944814.6501,
                 "title": "Beyond Solar Panels: Why Data is Becoming the New Fuel - Ope",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1108,7 +1108,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746990.1365,
+                "id": 1791956945218.479,
                 "title": "Report: How climate insights drive a more reliable renewable",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1122,7 +1122,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746766.4004,
+                "id": 1791956945068.6846,
                 "title": "South Korea Releases Weather Data to Aid Renewable Energy De",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1136,7 +1136,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746259.4055,
+                "id": 1791956944982.464,
                 "title": "Improving Predictability of Wind Power Generation Using Empi",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1150,7 +1150,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944747014.8247,
+                "id": 1791956944701.8997,
                 "title": "Multi-threshold time series analysis enables characterizatio",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1164,7 +1164,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746327.8225,
+                "id": 1791956944592.5168,
                 "title": "A Decade of Growth in Solar and Wind Power: Trends Across th",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1178,7 +1178,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746575.56,
+                "id": 1791956944633.9763,
                 "title": "Towards resilient renewable energy deployment in Africa thro",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1192,7 +1192,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746564.2039,
+                "id": 1791956944467.8818,
                 "title": "A Decade of Growth for U.S. Solar and Wind - Climate Central",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1206,7 +1206,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746150.1187,
+                "id": 1791956944389.217,
                 "title": "Probabilistic day-ahead forecasting of system-level renewabl",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1220,7 +1220,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746664.9038,
+                "id": 1791956944614.8357,
                 "title": "A Decade of U.S. Wind Growth - Climate Central",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1234,7 +1234,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746271.0032,
+                "id": 1791956945245.689,
                 "title": "An hourly climate projection and renewable energy generation",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1248,7 +1248,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746518.3503,
+                "id": 1791956945144.17,
                 "title": "Solar potential assessment using machine learning and climat",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1262,7 +1262,7 @@ const MOCK_DATA = {
                 "ratingReason": "行业动态，具有参考价值"
             },
             {
-                "id": 1791944746182.9016,
+                "id": 1791956944447.158,
                 "title": "A climatology of weather-driven anomalies in European photov",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1278,7 +1278,7 @@ const MOCK_DATA = {
         ],
         "subway": [
             {
-                "id": 1791944746106.137,
+                "id": 1791956944563.6472,
                 "title": "Charlotte Metro weather forecast for June 18, 2026 -- 11 p.m",
                 "company": "气象公司",
                 "field": "ToB",
@@ -1287,6 +1287,48 @@ const MOCK_DATA = {
                 "rating": "B",
                 "summary": "Charlotte Metro weather forecast for June 18, 2026 -- 11 p.m. update&nbsp;&nbsp;WBTV",
                 "source": "https://news.google.com/rss/articles/CBMingFBVV95cUxQVDFrR2o3WDNFQlhZbHlnWHZMZld3S3Y0d0FyMTl2VWxrQUJzV3pQdUp0bnVsQjVkSkxnV0x3UU5pQmI5Mi1MMDVPcXdraG1zbjZRQXlEckdmVHplTWk0V2JPS2JJWnAxWXo4Mll1NS1MSE5uaWQ1dDZJclNMd2RhN1lmUWZ1cHRRQm1rangtVXF6UnMzQm5RNWZTZ2lLUQ?oc=5",
+                "aiAnalysis": "subway气象领域的最新动态",
+                "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
+                "ratingReason": "行业动态，具有参考价值"
+            },
+            {
+                "id": 1791956944359.0618,
+                "title": "Here’s the Charlotte Metro weather forecast leading up to Me",
+                "company": "气象公司",
+                "field": "ToB",
+                "date": "2026-10-14",
+                "type": "技术",
+                "rating": "B",
+                "summary": "Here’s the Charlotte Metro weather forecast leading up to Memorial Day weekend&nbsp;&nbsp;WBTV",
+                "source": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQeFY4Ync3Wm5aRUw3WXRfbnc1OFZDX1VORWMtNU5uZERHVWY2UHdTbjN3b1p4R1F6QVJfc1B5LTg5bHBjNWRmODBHRy02endzNjZWY251c2NsQmhSWkYxSFZTb09vdmVoQV9jUnJNdThkZWwzeEFOVUVlWnRPcXZjdkl5S19WWkRMbzRSTHJPQ2hBS0ZKMkFyV29PQjU4eDJZZ09ncGdB0gG6AUFVX3lxTE9iUE1XcWdMOTRYNFZ4c2NKLXhUQWlKbEgyR1U5MTNrSHlydE9zcTFndW1jcU9jVThJNktGN3FhbGZvS2RMVmRGS2dTMW9oVzJWaUstSzRSdm5RVGtKcEN3eUdRTVVzVFRhUGN5M0EzVm9uUjIwLS14Qzllckc2X1Q4OExTOFE3ZkJKdHlwVFUwR2F0MEh0bGx2bHJib1FtNkdlR0c4aTRseGVUNXRZU2tmVW1xMURGMHBnQQ?oc=5",
+                "aiAnalysis": "subway气象领域的最新动态",
+                "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
+                "ratingReason": "行业动态，具有参考价值"
+            },
+            {
+                "id": 1791956945077.0376,
+                "title": "Metro Weather and Tokyo Keiki Reveal Alliance to Mass Produc",
+                "company": "气象公司",
+                "field": "ToB",
+                "date": "2026-10-14",
+                "type": "技术",
+                "rating": "B",
+                "summary": "Metro Weather and Tokyo Keiki Reveal Alliance to Mass Produce Doppler LiDAR for Defense Applications&nbsp;&nbsp;Asian Military Review",
+                "source": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNcEM5MEVIVnB4dkYxNV9Bb1pmclBMN2REdXdlT1YtSy1GeTN6eE9sdDdJSW9EOEdQb1d2N21kdTlnSXZUXzdTY1hpNDd4MzNoVlI5U0VGcXhocnBLR1laLWhJUXBtYk9nYVJQRWhsc3FkWm1pVmswVnhwN0M5c2p6SHRlT1R0alhpOC0wUkdNdWZzTDVEZzhieEs0U2xjQlhaMDFNZEZVN0FEWTFwazJMN0V6WTFxZ2hQNlQxeWdUZElTRWp5dHVoNTc4U1paMHZmMjJnX1p0U3ROb1lYcVlKVUVacWo?oc=5",
+                "aiAnalysis": "subway气象领域的最新动态",
+                "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
+                "ratingReason": "行业动态，具有参考价值"
+            },
+            {
+                "id": 1791956944626.052,
+                "title": "CVC Fund Investment in Kyoto University Start-Up Company Met",
+                "company": "气象公司",
+                "field": "ToB",
+                "date": "2026-10-14",
+                "type": "技术",
+                "rating": "B",
+                "summary": "CVC Fund Investment in Kyoto University Start-Up Company Metro Weather to Develop Three-Dimensional Measurement Technology for Investigating Wind Cond",
+                "source": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5CbW1OZ0NTRGZkZUVQSkliRkg1UV80cU1EN2ZTRmRZVHRzSHN3bktJYlhuczlCaGFGT2hJNGZoQTZHejlRVUEycXlkS2pBTlNWa2JzSDJfbDk2QQ?oc=5",
                 "aiAnalysis": "subway气象领域的最新动态",
                 "impactOnMoji": "对墨迹天气的影响：可关注ToB业务拓展机会",
                 "ratingReason": "行业动态，具有参考价值"
