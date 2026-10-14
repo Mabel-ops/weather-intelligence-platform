@@ -58,7 +58,8 @@ const TOB_NEWS_SOURCES = [
         name: 'Aviation Weather Services',
         category: 'aviation',
         url: 'https://news.google.com/rss/search?q=("aviation+weather"+OR+"flight+weather"+OR+"airport+weather")+(service+OR+system+OR+technology+OR+contract)&hl=en-US&gl=US&ceid=US:en',
-        keywords: []
+        keywords: [],
+        timeRange: 'qdr:m2' // 近2个月
     },
     // 能源气象
     {
@@ -66,7 +67,8 @@ const TOB_NEWS_SOURCES = [
         name: 'Energy Weather Services',
         category: 'energy',
         url: 'https://news.google.com/rss/search?q=("renewable+energy"+OR+"wind+power"+OR+"solar+energy")+(weather+forecast+OR+weather+data+OR+meteorological)&hl=en-US&gl=US&ceid=US:en',
-        keywords: []
+        keywords: [],
+        timeRange: 'qdr:m2'
     },
     // 交通气象
     {
@@ -74,7 +76,8 @@ const TOB_NEWS_SOURCES = [
         name: 'Transportation Weather',
         category: 'transportation',
         url: 'https://news.google.com/rss/search?q=("railway+weather"+OR+"metro+weather"+OR+"transportation+weather")+(service+OR+system+OR+forecast)&hl=en-US&gl=US&ceid=US:en',
-        keywords: []
+        keywords: [],
+        timeRange: 'qdr:m2'
     }
 ];
 
@@ -85,21 +88,24 @@ const TREND_SOURCES = [
         name: 'Weather Industry Trends',
         category: 'trend',
         url: 'https://news.google.com/rss/search?q=("weather+industry"+OR+"meteorology+industry")+(trend+OR+report+OR+analysis+OR+forecast+OR+"market+research")&hl=en-US&gl=US&ceid=US:en',
-        keywords: []
+        keywords: [],
+        timeRange: 'qdr:m2'
     },
     {
         type: 'google_rss',
         name: 'Climate Tech Trends',
         category: 'trend',
         url: 'https://news.google.com/rss/search?q="climate+tech"+(trend+OR+investment+OR+"market+report"+OR+growth)&hl=en-US&gl=US&ceid=US:en',
-        keywords: []
+        keywords: [],
+        timeRange: 'qdr:m2'
     },
     {
         type: 'google_rss',
         name: 'AI Weather Trends',
         category: 'trend',
         url: 'https://news.google.com/rss/search?q=("AI+weather"+OR+"artificial+intelligence+meteorology")+(breakthrough+OR+innovation+OR+trend)&hl=en-US&gl=US&ceid=US:en',
-        keywords: []
+        keywords: [],
+        timeRange: 'qdr:m2'
     }
 ];
 
@@ -212,13 +218,38 @@ class WeatherIntelUpdater {
             }
         }
 
+        console.log(`  原始新闻总数: ${allNews.length}`);
+
+        // 统计各类别
+        const categories = {};
+        allNews.forEach(n => {
+            categories[n.category] = (categories[n.category] || 0) + 1;
+        });
+        console.log(`  类别分布:`, categories);
+
         // 过滤相关新闻
         const relevantNews = this.filterRelevantNews(allNews);
+        console.log(`  过滤后: ${relevantNews.length} 条`);
+
+        // 过滤后的类别统计
+        const filteredCategories = {};
+        relevantNews.forEach(n => {
+            filteredCategories[n.category] = (filteredCategories[n.category] || 0) + 1;
+        });
+        console.log(`  过滤后类别:`, filteredCategories);
 
         // 去重
         const uniqueNews = this.deduplicateNews(relevantNews);
 
-        return uniqueNews.slice(0, 20);
+        // 对于 ToB 和趋势，返回所有去重后的数据（不限制数量）
+        // 对于 ToC，限制为 20 条
+        const category = sources[0]?.category;
+        if (category === 'toc') {
+            return uniqueNews.slice(0, 20);
+        } else {
+            // ToB 和趋势返回全部数据，让后续方法按类别处理
+            return uniqueNews;
+        }
     }
 
     /**
@@ -228,7 +259,15 @@ class WeatherIntelUpdater {
         const news = [];
 
         try {
-            const response = await axios.get(source.url, {
+            // 如果有时间范围参数，添加到 URL
+            let url = source.url;
+            if (source.timeRange) {
+                url = url.includes('?')
+                    ? `${url}&tbs=${source.timeRange}`
+                    : `${url}?tbs=${source.timeRange}`;
+            }
+
+            const response = await axios.get(url, {
                 headers: {
                     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
                 },
@@ -238,7 +277,7 @@ class WeatherIntelUpdater {
             const $ = cheerio.load(response.data, { xmlMode: true });
 
             $('item').each((i, elem) => {
-                if (i >= 10) return false; // 每个源最多10条
+                if (i >= 50) return false; // 每个源最多50条（原来是10条）
 
                 const $item = $(elem);
                 const title = $item.find('title').text().trim();
@@ -279,7 +318,20 @@ class WeatherIntelUpdater {
         return newsItems.filter(item => {
             const text = (item.title + ' ' + item.snippet).toLowerCase();
 
-            // 必须包含目标公司
+            // 对于 ToB 和趋势类新闻，使用更宽松的过滤
+            if (item.category === 'aviation' || item.category === 'energy' ||
+                item.category === 'transportation' || item.category === 'trend') {
+
+                // 排除明显不相关的天气预报
+                const isForecastNews = text.includes('degrees') ||
+                                      text.includes('celsius') ||
+                                      text.includes('tomorrow will be') ||
+                                      text.includes('today\'s weather');
+
+                return !isForecastNews;
+            }
+
+            // ToC 新闻的原有严格过滤
             const hasCompany = TARGET_COMPANIES.some(company =>
                 text.includes(company.toLowerCase())
             );
@@ -312,10 +364,10 @@ class WeatherIntelUpdater {
     /**
      * 使用 Claude AI 分析新闻
      */
-    async analyzeWithClaude(newsItems) {
+    async analyzeWithClaude(newsItems, category = 'toc') {
         if (!this.anthropic) {
             console.log('  未检测到 ANTHROPIC_API_KEY，使用简化分析');
-            return this.fallbackAnalysis(newsItems);
+            return this.fallbackAnalysis(newsItems, category);
         }
 
         console.log('→ 调用 Claude API 分析新闻...');
@@ -342,11 +394,11 @@ class WeatherIntelUpdater {
             }
 
             console.warn('  ⚠ Claude 响应格式不正确，使用简化分析');
-            return this.fallbackAnalysis(newsItems);
+            return this.fallbackAnalysis(newsItems, category);
 
         } catch (error) {
             console.error('  ✗ Claude API 调用失败:', error.message);
-            return this.fallbackAnalysis(newsItems);
+            return this.fallbackAnalysis(newsItems, category);
         }
     }
 
@@ -397,32 +449,43 @@ ${newsText}
     /**
      * 备用分析方法
      */
-    fallbackAnalysis(newsItems) {
+    fallbackAnalysis(newsItems, category = 'toc') {
         const intelligence = [];
+
+        // 对于 ToB 和趋势，所有通过过滤的新闻都保留
+        const isToB = category.startsWith('tob-');
+        const isTrend = category === 'trend';
+
         const importantKeywords = ['AI', 'artificial intelligence', '融资', 'funding', '收购', 'acquire',
-                                   '合作', 'partner', 'launch', 'release', '发布', 'new feature', '功能'];
+                                   '合作', 'partner', 'launch', 'release', '发布', 'new feature', '功能',
+                                   'system', 'service', 'technology', 'innovation', 'contract'];
 
         for (const news of newsItems) {
             const text = news.title + ' ' + news.snippet;
-            const hasImportantKeyword = importantKeywords.some(kw =>
-                text.toLowerCase().includes(kw.toLowerCase())
-            );
 
-            if (hasImportantKeyword && intelligence.length < 5) {
+            // ToB 和趋势新闻：更宽松，只要不是明显无关就保留
+            const shouldInclude = isToB || isTrend ||
+                importantKeywords.some(kw => text.toLowerCase().includes(kw.toLowerCase()));
+
+            if (shouldInclude && intelligence.length < 20) {
                 const company = this.extractCompany(text);
 
                 intelligence.push({
                     id: Date.now() + Math.random() * 1000,
-                    title: news.title.substring(0, 50),
+                    title: news.title.substring(0, 60),
                     company: company,
-                    field: "ToC",
+                    field: isToB ? "ToB" : "ToC",
                     date: this.today,
                     type: this.guessType(text),
                     rating: "B",
-                    summary: news.snippet.substring(0, 100),
+                    summary: news.snippet.substring(0, 150),
                     source: news.source,
-                    aiAnalysis: `${company}的最新动态值得关注`,
-                    impactOnMoji: "对墨迹天气的影响：建议持续跟踪该公司动态",
+                    aiAnalysis: isToB ? `${category.split('-')[1]}气象领域的最新动态` :
+                               isTrend ? '行业趋势值得关注' :
+                               `${company}的最新动态值得关注`,
+                    impactOnMoji: isToB ? "对墨迹天气的影响：可关注ToB业务拓展机会" :
+                                 isTrend ? "对墨迹天气的影响：行业趋势洞察" :
+                                 "对墨迹天气的影响：建议持续跟踪该公司动态",
                     ratingReason: "行业动态，具有参考价值"
                 });
             }
@@ -616,11 +679,15 @@ ${newsText}
         const energy = newsItems.filter(n => n.category === 'energy');
         const transportation = newsItems.filter(n => n.category === 'transportation');
 
-        return {
-            aviation: await this.analyzeWithClaude(aviation, 'tob-aviation') || [],
-            energy: await this.analyzeWithClaude(energy, 'tob-energy') || [],
-            subway: await this.analyzeWithClaude(transportation, 'tob-subway') || []
+        console.log(`  分类统计: 航空 ${aviation.length}, 能源 ${energy.length}, 交通 ${transportation.length}`);
+
+        const result = {
+            aviation: aviation.length > 0 ? await this.analyzeWithClaude(aviation, 'tob-aviation') : [],
+            energy: energy.length > 0 ? await this.analyzeWithClaude(energy, 'tob-energy') : [],
+            subway: transportation.length > 0 ? await this.analyzeWithClaude(transportation, 'tob-subway') : []
         };
+
+        return result;
     }
 
     /**
