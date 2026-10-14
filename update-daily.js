@@ -277,7 +277,7 @@ class WeatherIntelUpdater {
             const $ = cheerio.load(response.data, { xmlMode: true });
 
             $('item').each((i, elem) => {
-                if (i >= 50) return false; // 每个源最多50条（原来是10条）
+                // 移除数量限制，抓取 RSS 源中的所有新闻
 
                 const $item = $(elem);
                 const title = $item.find('title').text().trim();
